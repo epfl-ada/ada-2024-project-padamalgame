@@ -1,3 +1,8 @@
+# ADA
+**/.DS_Store
+src/data/title.basics.tsv
+src/data/title.ratings.tsv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
