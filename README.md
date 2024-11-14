@@ -1,21 +1,37 @@
 
-# Your project name
-This is a template repo for your project to help you organise and document your code better. 
-Please use this structure for your project and document the installation, usage and structure as below.
+# From Page to Screen: The Powerful Influence of Literature on Cinema ?
 
-## Quickstart
-
-```bash
-# clone project
-git clone <project link>
-cd <project repo>
-
-# [OPTIONAL] create conda environment
-conda create -n <env_name> python=3.11 or ...
-conda activate <env_name>
+# Abstract
+We would like to tell our story with chapters and a protagonist that will lead the story. Just like in books
 
 
-# install requirements
+# Research questions
+
+# Additional Datasets
+## 1. IMdB
+## 2. 
+## 3.
+
+
+# Methods
+
+
+# Proposed Timeline
+
+
+# Organization within the Team
+
+
+
+# Questions for TAs 
+
+
+
+
+
+## install requirements
+First, install all the necessary requirements.
+
 pip install -r pip_requirements.txt
 ```
 

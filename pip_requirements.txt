@@ -5,3 +5,5 @@ scipy==1.13.0
 matplotlib==3.8.4
 wandb==0.17.2
 numpy== ...
+beautifulsoup4==4.12.3
+kagglehub==0.3.3
