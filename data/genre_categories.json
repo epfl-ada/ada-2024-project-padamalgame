@@ -1,0 +1,155 @@
+{
+    "Action & Adventure": [
+        "Action/Adventure", "Action", "Adventure", "Action Thrillers", "Adventure Comedy", 
+        "Swashbuckler films", "Chase Movie", "Combat Films", "War film", "Heist", 
+        "Caper story", "Western", "Epic Western", "Indian Western", "Baseball", 
+        "Parkour in popular culture", "Escape Film", "Movie serial", "Fantasy Adventure", 
+        "Sword and sorcery"
+    ],
+    "Adult & Erotic": [
+        "Erotica", "Adult", "Softcore Porn", "Erotic Drama", "Sex comedy", "Sexploitation"
+    ],
+    "Animated": [
+        "Animated cartoon", "Animation", "Computer Animation", "Stop motion", "Anime"
+    ],
+    "B-Movies & Cult": [
+        "B-movie", "Horror B-movie", "Grindhouse", "Sexploitation", "Caper story", "B-Western", 
+        "Reboot", "Sexploitation"
+    ],
+    "Biographical & Based on True Stories": [
+        "Biopic [feature]", "Docudrama", "Biography", "Hagiography", "Courtroom Drama"
+    ],
+    "Classic & Silent": [
+        "Black-and-white", "Silent film", "Pre-Code", "Film noir"
+    ],
+    "Comedy": [
+        "Comedy", "Comedy film", "Comedy-drama", "Slapstick", "Tragicomedy", "Screwball comedy", 
+        "Black comedy", "Workplace Comedy", "Comedy of manners", "Comedy Thriller", "Fantasy Comedy", 
+        "Political satire", "Musical comedy", "Comedy Western", "Sex comedy", "Parody", 
+        "Comedy of Errors", "Satire", "Black comedy", "Screwball comedy", "Domestic Comedy"
+    ],
+    "Crime & Gangster": [
+        "Gangster Film", "Crime Fiction", "Crime Drama", "Blaxploitation", "Heist", 
+        "Caper story", "Gangster movie", "Prison film", "B-movie", "Crime Comedy", "Caper story", "Prison",
+        "Crime Thriller"
+    ],
+    "Cult": [
+        "Cult"
+    ],
+    "Cultural & World": [
+        "Chinese Movies", "World cinema", "Japanese Movies", "Bengali Cinema", 
+        "Filipino Movies", "Bollywood", "The Netherlands in World War II", "Indian Western", "Americana"
+    ],
+    "Cyber & Digital": [
+        "Cyberpunk", "Digital drama", "Computer Animation"
+    ],
+    "Documentary & Non-fiction": [
+        "Documentary", "Educational", "Archives and records", "Political cinema", "Anthology", "Natural disaster",
+        "Animal Picture", "Jungle Film", "Nature documentary", "Airplanes and airports"
+    ],
+    "Drama": [
+        "Drama", "Romantic drama", "Family Drama", "Marriage Drama", "Erotic Drama", 
+        "Romantic fantasy", "Romantic comedy", "Heavenly Comedy", "Addiction Drama", "Medical fiction", 
+        "Domestic Comedy", "Legal drama", "Childhood Drama", "Psychological drama", "Addiction Drama",
+        "Fantasy Drama"
+    ],
+    "Espionage & Spy": [
+        "Spy", "Glamourized Spy Film", "Political thriller", "Glamorized Spy Film"
+    ],
+    "Experimental": [
+        "Avant-garde", "Experimental film", "Surrealism", "Absurdism", 
+        "Kafkaesque", "Expressionism", "Sexploitation", "Film noir"
+    ],
+    "Family & Children": [
+        "Children's/Family", "Family Film", "Children's Fantasy", "Family Drama", 
+        "Children's", "Children's Entertainment", "Holiday Film", "Family-Oriented Adventure"
+    ],
+    "Fantasy & Science Fiction": [
+        "Fantasy", "Fantasy Adventure", "Sword and sorcery", "Fantasy Comedy", 
+        "Romantic fantasy", "Mythological Fantasy", "Science Fiction", "Sci-Fi Horror", 
+        "Sci-Fi Adventure", "Space opera", "Alien Film", "Time travel", "Cyberpunk", "Steampunk", 
+        "Werewolf fiction", "Natural disaster", "Fantasy Horror", "Fairy tale", "Fantasy Drama",
+        "Alien invasion", "Dystopia"
+    ],
+    "Genre-Bending": [
+        "Hybrid Western", "Action Comedy", "Fantasy Drama", "Horror Comedy", "Sci-Fi Adventure", 
+        "Road movie", "Epic Western"
+    ],
+    "Historical & Period": [
+        "Historical fiction", "Biographical film", "Costume drama", "Period piece", 
+        "Historical drama", "Historical Epic", "History", "Historical drama", 
+        "British Empire Film", "The Netherlands in World War II", "Film adaptation", 
+        "Film à clef", "Roadshow theatrical release", "British New Wave", "Melodrama", 
+        "Costume Horror", "Epic", "Archaeology", "Americana", "Period drama"
+    ],
+    "Holiday & Seasonal": [
+        "Christmas movie", "Holiday Film"
+    ],
+    "Horror & Supernatural": [
+        "Horror", "Supernatural", "Horror Comedy", "Psychological horror", "Slasher", 
+        "Creature Film", "Haunted House Film", "Monster", "Monster movie", 
+        "Zombie Film", "Demonic child", "Natural horror films", "Plague", "Sexploitation",
+        "Werewolf fiction", "Psycho-biddy", "Gothic Film"
+    ],
+    "Indie & Art": [
+        "Indie", "Art film", "Experimental film", "Avant-garde", "Foreign legion", "Art house", 
+        "Documentary", "New Hollywood", "Experimental film", "Cult", "Mockumentary", "Short Film"
+    ],
+    "LGBTQ+": [
+        "LGBT", "Gay", "Gay Interest", "Gay Themed", "LGBT", "Gay pornography"
+    ],
+    "Musicals & Dance": [
+        "Musical", "Animated Musical", "Dance", "Musical comedy", "Musical Drama", "Music", "Hip hop movies"
+    ],
+    "Period & Costume": [
+        "Costume drama", "Period piece", "Historical drama", "Costume Adventure", "Epic",
+        "Costume Horror"
+    ],
+    "Psychological & Mind-bending": [
+        "Psychological thriller", "Existentialism", "Surrealism", "Psychological horror", 
+        "Mind-bending film", "Heavenly Comedy", "Psycho-biddy"
+    ],
+    "Romance & Relationship": [
+        "Romance Film", "Romantic drama", "Romantic comedy", "Family Drama", 
+        "Marriage Drama", "Erotic Drama", "Romantic fantasy", "Romantic comedy", 
+        "Heavenly Comedy", "Fantasy romance", "Tragedy"
+    ],
+    "Social Issues & Political Drama": [
+        "Political drama", "Political thriller", "Social problem film", "Political cinema", 
+        "Feminist Film", "Christian film", "Social commentary", "Addiction Drama", "Anti-war film",
+        "Kitchen sink realism", "Slice of life", "Albino bias"
+    ],
+    "Sports & Martial Arts": [
+        "Sports", "Baseball", "Horse racing", "Stoner film", "Beach Film", "Parkour in popular culture",
+        "Wuxia", "Martial Arts Film", "Samurai cinema", "Sword and Sandal", "Kung Fu films", 
+        "Sword and sorcery films"
+    ],
+    "Superhero": [
+        "Superhero movie", "Superhero"
+    ],
+    "Teen & Coming of Age": [
+        "Coming of age", "Teen", "Juvenile Delinquency Film", "School story", "Slice of life story",
+        "Childhood Drama"
+    ],
+    "Thrillers & Mysteries": [
+        "Thriller", "Mystery", "Detective", "Crime Thriller", "Suspense", "Crime Fiction", 
+        "Detective fiction", "Whodunit", "Crime Drama", "Crime Comedy", 
+        "Psychological thriller", "Erotic thriller", "Neo-noir", "Future noir", "Spy", 
+        "Glamourized Spy Film", "Remake", "Buddy film", "Legal drama", "Political thriller", "Action Thrillers",
+        "Glamorized Spy Film"
+    ],
+    "War & Military": [
+        "War film", "Anti-war", "Military fiction", "Combat Films", "Cold War", 
+        "Revisionist Western", "Cavalry Film", "The Netherlands in World War II", "Disaster", 
+        "Propaganda film", "Doomsday film", "Anti-war film"
+    ],
+    "Western": [
+        "Epic Western", "Revisionist Western"
+    ],
+    "Zombie & Apocalyptic": [
+        "Zombie Film", "Apocalyptic and post-apocalyptic fiction", "Doomsday film"
+    ],
+    "Other": [
+        "Ensemble Film", "Star vehicle", "Television movie", "Female buddy film", "nan", ""
+    ]
+}

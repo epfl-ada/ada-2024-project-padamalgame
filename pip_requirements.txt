@@ -4,6 +4,7 @@ sentencepiece==0.2.0
 scipy==1.13.0
 matplotlib==3.8.4
 wandb==0.17.2
-numpy== ...
+numpy== 1.26.4
 beautifulsoup4==4.12.3
 kagglehub==0.3.3
+colorcet==3.1.0
