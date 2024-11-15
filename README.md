@@ -20,14 +20,14 @@ Finally, we will analyze **Does a book’s plots and its adaptation’s plot res
 
 # Additional Datasets
 ## 1. Wiki/List_of_fiction_works_made_into_feature_films
-The foundation of our dataset on movie adaptations of books was built using data from Wikipedia's [https://en.wikipedia.org/wiki/Lists_of_works_of_fiction_made_into_feature_films](List of Fiction Works Made into Feature Films). We decided to focus on fiction and scraped all the pages under the subsection “Books”. This has allowed us to have a mapping of 4941 books to movies with book name, book authors, book year, film name and film year.
+The foundation of our dataset on movie adaptations of books was built using data from Wikipedia's [List of Fiction Works Made into Feature Films](https://en.wikipedia.org/wiki/Lists_of_works_of_fiction_made_into_feature_films). We decided to focus on fiction and scraped all the pages under the subsection “Books”. This has allowed us to have a mapping of 4941 books to movies with book name, book authors, book year, film name and film year.
 
 
 ## 2. Goodreads
-To enhance our dataset further, we merged it with the **Goodreads Book Dataset** available on Kaggle [https://www.kaggle.com/datasets/bahramjannesarr/goodreads-book-datasets-10m](Goodreads Book Datasets 10M). This dataset provides extensive metadata about books, including book genre, average rating and the rating distribution, and number of pages. 
+To enhance our dataset further, we merged it with the **Goodreads Book Dataset** available on [Kaggle](https://www.kaggle.com/datasets/bahramjannesarr/goodreads-book-datasets-10m). This dataset provides extensive metadata about books, including book genre, average rating and the rating distribution, and number of pages. 
 
 ## 3. IMdB
-We merged CMU with two datasets from [https://developer.imdb.com/non-commercial-datasets/](IMDB’s non-commercial datasets). Both of them are small-enough (up to ~1Gb) so they can be handled without specific measures.
+We merged CMU with two datasets from [IMDB’s non-commercial datasets](https://developer.imdb.com/non-commercial-datasets/). Both of them are small-enough (up to ~1Gb) so they can be handled without specific measures.
 ### title.basics
 We merge the CMU dataset with title.basics on both the movie’s name and date. Special care is taken to handle the fact that IMDB has both the originalTitle or the PrimaryTitle that can match. We extract the titleId to use when merging the next dataset, and isAdult for further analysis.
 ### title.ratings
