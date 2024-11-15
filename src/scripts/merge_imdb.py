@@ -1,6 +1,12 @@
 import pandas as pd
 
-data_folder = "data/"
+data_folder = "./data/"
+
+def clean_title(title):
+    """
+    Cleanup of titles consistent accross datasets.
+    """
+    return title.lower().replace(" ", "")
 
 def merge_with_imdb_id(df):
     """
