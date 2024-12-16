@@ -13,6 +13,7 @@ def analysis_by_category(df):
     # Load the genre categories from a JSON file
     with open('data/genre_categories.json', 'r') as file:
         genre_categories = json.load(file)
+        
     # Map genres to categories
     df_genres_exploded['category'] = df_genres_exploded['genres'].map(lambda x: next((k for k, v in genre_categories.items() if x in v), 'Other'))
 
