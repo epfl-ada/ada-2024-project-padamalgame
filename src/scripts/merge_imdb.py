@@ -1,6 +1,6 @@
 import pandas as pd
 
-data_folder = "./data/"
+data_folder = "../data/"
 
 def clean_title(title):
     """

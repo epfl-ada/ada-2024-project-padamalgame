@@ -61,17 +61,17 @@ def extract_authors(text):
 
 # Extracts several features from a dataframe while sanitizing them
 def extract_features(df):
-    df['title_book'] = df['fiction_work'].str.split('(').str[0]
-    df['title_book'] = df['title_book'].apply(lambda t: t.replace('"', ''))
+    df['BookTitle'] = df['fiction_work'].str.split('(').str[0]
+    df['BookTitle'] = df['BookTitle'].apply(lambda t: t.replace('"', ''))
 
     df_split_comma = df['fiction_work'].str.split(',')
-    df['author_book'] = df_split_comma.apply(extract_authors)
-    df['author_book'] = clean_authors(df['author_book'])
+    df['BookAuthor'] = df_split_comma.apply(extract_authors)
+    df['BookAuthor'] = clean_authors(df['BookAuthor'])
 
-    df['year_book'] = df['fiction_work'].apply(extract_years)
+    df['BookYear'] = df['fiction_work'].apply(extract_years)
 
-    df['title_film'] = df['film_adaptations'].str.split('(').str[0]
-    df['year_film'] = df['film_adaptations'].apply(extract_years)
+    df['FilmTitle'] = df['film_adaptations'].str.split('(').str[0]
+    df['FilmYear'] = df['film_adaptations'].apply(extract_years)
 
     df = df.drop(['fiction_work', 'film_adaptations'], axis = 1)
 
@@ -79,15 +79,15 @@ def extract_features(df):
 
 # Filling in values "same as above" and "same as below" with the data above or below respectively
 def clean_same_as_above_below(df):
-    indexes = df.index[df['title_film'] == 'same as above'].tolist()
+    indexes = df.index[df['FilmTitle'] == 'same as above'].tolist()
     target_ind =[(index - 1) for index in indexes]
-    df['title_film'][indexes] = df['title_film'][target_ind]
-    df['year_film'][indexes] = df['year_film'][target_ind]
+    df['FilmTitle'][indexes] = df['FilmTitle'][target_ind]
+    df['FilmYear'][indexes] = df['FilmYear'][target_ind]
 
-    indexes = df.index[df['title_film'] == 'same as below'].tolist()
+    indexes = df.index[df['FilmTitle'] == 'same as below'].tolist()
     target_ind =[(index + 1) for index in indexes]
-    df['title_film'][indexes] = df['title_film'][target_ind]
-    df['year_film'][indexes] = df['year_film'][target_ind]
+    df['FilmTitle'][indexes] = df['FilmTitle'][target_ind]
+    df['FilmYear'][indexes] = df['FilmYear'][target_ind]
 
     return df
 

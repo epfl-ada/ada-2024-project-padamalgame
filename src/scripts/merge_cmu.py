@@ -50,14 +50,27 @@ def merge_with_CMU(df):
     cmu_movies = clean_cmu("../MovieSummaries/movie.metadata.tsv")
 
     # Clean the title from the dataset scrapped to allow merge on title with CMU
-    title_column = df['title_film']
+    title_column = df['FilmTitle']
     new_title_column = title_column.apply(clean_title)
-    df['title_film'] = new_title_column
+    df['FilmTitle'] = new_title_column
 
     # Do the merge
-    merge_cmu = cmu_movies.merge(right=df, how="inner", left_on=['clean_name', 'movie_date'], right_on=['title_film', 'year_film'], copy=False)
-    merge_cmu = merge_cmu.drop(['title_film', 'year_film'], axis=1)
+    merge_cmu = cmu_movies.merge(right=df, how="inner", left_on=['clean_name'], right_on=['FilmTitle'], copy=False)
+    merge_cmu = merge_cmu[merge_cmu.apply(check_year_in_range, axis=1)]
+    merge_cmu = merge_cmu.drop(['FilmTitle', 'FilmYear'], axis=1)
     merge_cmu = merge_cmu.drop_duplicates()
     merge_cmu = merge_cmu.dropna(subset=['movie_date'])
+    merge_cmu = merge_cmu[merge_cmu.movie_date != "nan"]
     merge_cmu['movie_date'] = merge_cmu['movie_date'].astype('int64')
     return merge_cmu
+
+def check_year_in_range(row):
+    year = row['movie_date']
+    year_range = row['FilmYear']
+    if isinstance(year_range, str) and '-' in year_range:
+        start, end = map(int, year_range.split('-'))
+        if end == 'present': 
+            end = 2024
+        return start <= year <= end
+    else:
+        return True
