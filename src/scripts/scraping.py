@@ -29,9 +29,17 @@ def scrap_book_to_movie(url):
     return result
     
 # Extracts years in format "2000", "1999-2000" or "1999-present"
-def extract_years(text):
+def extract_years_film(text):
     years = re.findall(r'\((?:[^)]*?)(\d{4}(?:[–-](?:\d{4}|present))?)(?:[^)]*?)\)', text)
     return years[0] if years else None
+
+
+def extract_years_books(text):
+    years = re.findall(r'\((?:[^)]*?)(\d{4}(?:[–-](?:\d{4}|present))?)(?:[^)]*?)\)', text)
+    years = years[0].replace('–', '-').split('–') if years else None
+    start_year = years[0] if years else None
+    end_year = years[-1] if years else None
+    return start_year, end_year
 
 
 # Cleanup authors feature
@@ -68,10 +76,13 @@ def extract_features(df):
     df['BookAuthor'] = df_split_comma.apply(extract_authors)
     df['BookAuthor'] = clean_authors(df['BookAuthor'])
 
-    df['BookYear'] = df['fiction_work'].apply(extract_years)
+    df['BookYear'] = df['fiction_work'].apply(extract_years_books)
+    df['BookStartYear'] = df['BookYear'].apply(lambda x: x[0])
+    df['BookEndYear'] = df['BookYear'].apply(lambda x: x[-1])
+    df.drop('BookYear', axis=1, inplace=True)
 
     df['FilmTitle'] = df['film_adaptations'].str.split('(').str[0]
-    df['FilmYear'] = df['film_adaptations'].apply(extract_years)
+    df['FilmYear'] = df['film_adaptations'].apply(extract_years_film)
 
     df = df.drop(['fiction_work', 'film_adaptations'], axis = 1)
 

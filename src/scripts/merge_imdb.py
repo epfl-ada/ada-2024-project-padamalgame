@@ -60,7 +60,17 @@ def merge_with_imdb(df):
     merge_imdb = merge_with_imdb_ratings(merged_id)
 
     # cleanup merging
-    merge_imdb = merge_imdb.drop(['imdbID', 'clean_name'], axis=1)
+    merge_imdb = merge_imdb.drop(['imdbID', 'clean_name', 'isAdult'], axis=1)
+    merge_imdb.rename(columns={'rating': 'MovieRating', 
+                               'numVotes' : 'MovieRatingNb',
+                               'genres': 'MovieGenre',
+                               'movie_date': 'MovieYear',
+                               'box_office':'MovieBoxOffice',
+                               'language':'MovieLanguage',
+                               'countries': 'MovieCountries',
+                               'runtime':'MovieRuntime',
+                               'movie_name':'MovieName',
+                               }, inplace=True)
     
     print('lines dropped during merge with IMDB: ', len(df) - len(merge_imdb))
     return merge_imdb

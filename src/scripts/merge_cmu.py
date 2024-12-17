@@ -19,8 +19,8 @@ def clean_json_format(list):
 
 def clean_cmu(dataset_path): 
     cmu_movies = pd.read_csv(dataset_path, 
-                             sep='\t', usecols=[2,3,4,5,6,7,8], 
-                             names=['movie_name', 'movie_date', 'box_office', 'runtime', 'language', 'countries', 'genres']) 
+                             sep='\t', usecols=[0,2,3,4,5,6,7,8], 
+                             names=['wikipedia_id','movie_name', 'movie_date', 'box_office', 'runtime', 'language', 'countries', 'genres']) 
     
     # Clean the move name and place it in another column to save the original version. This will also be used when merging with IMDB
     name_column = cmu_movies['movie_name']
@@ -48,8 +48,6 @@ def merge_with_CMU(df):
 
     """
     cmu_movies = clean_cmu("../MovieSummaries/movie.metadata.tsv")
-
-    # Clean the title from the dataset scrapped to allow merge on title with CMU
     title_column = df['FilmTitle']
     new_title_column = title_column.apply(clean_title)
     df['FilmTitle'] = new_title_column
