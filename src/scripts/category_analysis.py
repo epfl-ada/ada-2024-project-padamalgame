@@ -26,7 +26,7 @@ def analysis_by_category(df):
     genre_counts = df_MovieGenre_exploded['MovieGenre'].value_counts()
 
     # Load the genre categories from a JSON file
-    genre_categories = load_genre_categories('data/genre_categories.json')
+    genre_categories = load_genre_categories('../data/genre_categories.json')
 
     # Map MovieGenre to categories
     df_MovieGenre_exploded['category'] = df_MovieGenre_exploded['MovieGenre'].map(lambda x: next((k for k, v in genre_categories.items() if x in v), 'Other'))
