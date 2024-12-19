@@ -30,6 +30,7 @@ Breaking asunder the old and the familiar, we are left with the raw and undefine
 
 Amidst the doubts and perils that beset our journey, fate weaves our path with that of an old grimoire. This venerable tome, passed from one alchemist to another across the ages and lands , bears the chronicles of those who, in their own wise, sought to unveil the great enigma. Thus do we come to the third stage of the alchemical journey, known as the Opus Citrinum, the Work of Yellowing, where we open our eyes towards the world and the wisdom of our peers.
 
+{% include plot.html %}
 
 
 ## Red Work : Rubedo.
@@ -37,5 +38,6 @@ Amidst the doubts and perils that beset our journey, fate weaves our path with t
 In this final stage, we come unto the completion of our toil, the Opus Rubedo, the Work of Reddening. Here, we gather all the fragments of our quest, binding together the purified data and the wisdom we have wrought. Through the art of sentiment analysis, we trace the shifting paths of emotion in both the book and its film, uncovering the bond between their ratings, and revealing how one doth shape the other, as base matter is transmuted into gold.
 
 
+{% include map-test.html %}
 
 # Conclusion
