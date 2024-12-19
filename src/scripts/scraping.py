@@ -36,7 +36,7 @@ def extract_years_film(text):
 
 def extract_years_books(text):
     years = re.findall(r'\((?:[^)]*?)(\d{4}(?:[–-](?:\d{4}|present))?)(?:[^)]*?)\)', text)
-    years = years[0].replace('–', '-').split('–') if years else None
+    years = years[0].replace('–', '-').split('-') if years else None
     start_year = years[0] if years else None
     end_year = years[-1] if years else None
     return start_year, end_year
