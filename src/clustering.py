@@ -27,7 +27,7 @@ def plot_silhouette(X, start=2, end=11):
     silhouettes = []
 
     # Try multiple k
-    for k in range(2, 11):
+    for k in range(start, end):
         # Cluster the data and assigne the labels
         labels = KMeans(n_clusters=k, random_state=10).fit_predict(X)
         # Get the Silhouette score

@@ -59,12 +59,8 @@ def sentiment_analysis(df, algorithms, column_name = 'MoviePlot'):
         data.append(algo(df[column_name]))
     return pd.concat(data, axis=1)
 
-def train_linear_regression(data):
-    target = 'MovieBoxOffice'
-    non_feature = ['MovieGenre', 'MovieBoxOffice', 'wikipedia_id']
-    features = data.drop(columns = non_feature).columns.tolist() 
-    formula = f"{target} ~ {' + '.join(features)}"
-
+def train_linear_regression(data, formula):
+  
     model = smf.ols(formula=formula, data=data)
     np.random.seed(2)
     results = model.fit()
