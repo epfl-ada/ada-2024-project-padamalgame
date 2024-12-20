@@ -5,9 +5,11 @@ import matplotlib.pyplot as plt
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
 import math
-from scripts.clustering import *
-from scripts.category_analysis import *
+from src.scripts.clustering import *
+from src.scripts.category_analysis import *
 from collections import defaultdict
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+
 
 def create_regression_dataset(genre_categories):
     features = ['wikipedia_id', 'BookRating', 'MovieYear', 'MovieLanguage', 'MovieRuntime', 'MovieRating', 'MovieBoxOffice', 'MoviePlot', 'MovieRatingNb']
@@ -39,7 +41,7 @@ def create_regression_dataset(genre_categories):
     data.rename(columns=new_cols, inplace=True)
     data.drop(columns = ['OtherLanguage'], inplace=True)
     data.drop_duplicates(subset='wikipedia_id', inplace=True)
-    data.to_csv('linear_regression_data.csv', index=False)
+    data.to_csv('data/linear_regression_data.csv', index=False)
     return data
 
 
@@ -76,7 +78,7 @@ def exploratory_plot(data, y):
 
     return
 
-def plot_coefficients(res):
+def plot_coefficients(res, title = 'Coefficients'):
     variables = res.params.index    
     coefficients = res.params.values
     p_values = res.pvalues
@@ -91,10 +93,17 @@ def plot_coefficients(res):
     plt.vlines(0,0, len(l1), linestyle = '--')
 
     plt.yticks(range(len(l2)),l2)
-    plt.xlabel('coefficients')
+    plt.title(title)
     plt.show()
 
     return
+
+def compute_vif(df):
+    vif_data = pd.DataFrame()
+    vif_data["Feature"] = df.columns
+    vif_data["VIF"] = [variance_inflation_factor(df.values, i) for i in range(df.shape[1])]
+
+    return vif_data
 
 
 def explode_MovieGenre(df):

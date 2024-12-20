@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.manifold import TSNE
-from scripts.category_analysis import *
+from src.scripts.category_analysis import *
 import plotly.express as px
 
-def plot_sse(features_X, start=2, end=11):
+def plot_sse(features_X, start=2, end=11, title = "Elbow Plot"):
     sse = []
     for k in range(start, end):
         # Assign the labels to the clusters
@@ -20,6 +20,7 @@ def plot_sse(features_X, start=2, end=11):
     plt.plot(sse.k, sse.sse)
     plt.xlabel("K")
     plt.ylabel("Sum of Squared Errors")
+    plt.title(title)
     return sse
 
 def get_dummy(df, column_name='category'):    
@@ -35,7 +36,7 @@ def get_dummy(df, column_name='category'):
 
     return df_dummies, df_transformed
 
-def plot_clustering(df, title):
+def plot_clustering(df, title, name):
     fig = px.scatter(
         df,
         x='Dimension 1',
@@ -51,7 +52,7 @@ def plot_clustering(df, title):
     )
     fig.update_layout(width=600,height=600)
     # Show the plot
-    fig.write_html('kmeans_tsne_adapted.html')
+    fig.write_html(name +'.html')
     fig.show()
     return
 
@@ -59,7 +60,7 @@ def count_values_in_lists(series):
     all_values = [item for sublist in series for item in sublist]
     return pd.Series(all_values).value_counts()[:5].index.tolist()  
 
-def analysis_by_cluster(df):
+def analysis_by_cluster(df, name):
 
     cluster_success = df.groupby('Cluster')[['MovieBoxOffice', 'MovieRating']].mean()
     cluster_success_std = df.groupby('Cluster')[['MovieBoxOffice', 'MovieRating']].std()
@@ -68,9 +69,9 @@ def analysis_by_cluster(df):
     cluster_analysis = pd.concat([cluster_success, cluster_success_std, cluster_genres, cluster_size], axis=1)
     cluster_analysis.columns = ['Average Box Office', 'Average Rating', 'Box Office Variance', 'Rating Variance', 'GenresList', 'ClusterSize']
 
-    html_table = df.to_html(classes="table table-striped", index=False)
+    html_table = cluster_analysis.to_html(classes="table table-striped", index=False)
 
-    with open("cluster_stats.html", "w") as file:
+    with open((name +".html"), "w") as file:
         file.write(html_table)
 
     return cluster_analysis
