@@ -13,10 +13,10 @@ from statsmodels.stats.outliers_influence import variance_inflation_factor
 
 def create_regression_dataset(genre_categories):
     features = ['wikipedia_id', 'BookRating', 'MovieYear', 'MovieLanguage', 'MovieRuntime', 'MovieRating', 'MovieBoxOffice', 'MoviePlot', 'MovieRatingNb']
-    adapted_movies_df = pd.read_csv('adapted_movies.csv')[features]
+    adapted_movies_df = pd.read_csv('data/adapted_movies.csv')[features]
     adapted_movies_df = adapted_movies_df.dropna(subset=['MovieBoxOffice', 'MoviePlot', 'MovieRating']).reset_index(drop=True)
     adapted_movies_df.drop_duplicates(subset = 'wikipedia_id', inplace=True)
-    movie_sentiments = pd.read_csv('adapted_movies_sentiments.csv').drop(columns=['MovieBoxOffice'])
+    movie_sentiments = pd.read_csv('data/adapted_movies_sentiments.csv').drop(columns=['MovieBoxOffice'])
     movie_sentiments.drop_duplicates(subset='wikipedia_id', inplace=True)
 
     # merge the two dataframes
