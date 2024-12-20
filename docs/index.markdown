@@ -7,22 +7,24 @@ title: 'Data Alchemy: Transforming Literature into Cinema'
 ---
 
 # Introduction  
-After dropping my studies in data science, I wanted to pursue a life in my passion of all time: **Literature**.\\
-Regrettably, the industry of literature is falling due to new technologies and social networks, and at this time, it’s becoming impossible to make a life out of writing books. Having this bitter taste in my mouth, I decided to use my background in data science to fight for my dreams and make my books as profitable as possible.\\
-My idea was to analyze **the influence of Literature on Cinema**. I wanted to understand what factors would make my books more likely to be adapted to the big screen. Finally, I want to make royalties, but money is not what matters most to me. What is most important is to spread my stories all around the world, and I need to analyze what divergences could appear, in order to protect my stories at all cost.
+*Here begins our quest to unveil the secret of transforming books into cinematic masterpieces. Just as alchemists sought to turn lead into gold, we will explore the transmutation of data into meaningful insights. Only meticulous work, data cleansing, analysis, and modeling, can reveal the full potential of a book into the big screen. We will follow the four major alchemical stages, each associated with its own color and symbolism: purification, separation, awakening, and unification. Our goal is to determine the unique characteristics of literary works that make their way to the big screen and to understand their impact on the world of cinema.*
+
 
 {% include whitework.html %}
 
 *We begin the first part of the work, also known as the Opus albedo (The Work of White) by preparing and cleaning our data. Long and toilsome, this stage is vital, as it is through this refining that we obtain a reliable and solid matter. As the alchemists of old sought to cleanse their base matter to bring forth gold, so must we cleanse our data, that it may serve as the foundation for that which is to come.*
 
 We needed to expand our dataset to obtain information on movies adapted from books. We began to scrap book-movie adaptation pairs from wikipedia pages. We then merged with the original CMU movie dataset.
+
 In order to gain more insights into the books, we merged our dataset with a goodreads dataset. Goodreads is a website where book aficionados can find information such as book plots and user ratings. Finally, we merged our dataset with the IMDb dataset in order to have access to user ratings for the movies this time. This came with extensive data cleaning. 
 Emerging from this fusion, we obtained the dataset on which we will perform our analysis.
 
+
 # Streamlining Genres for Cinematic Analysis
 
-To streamline the analysis of movie data, we mapped 529 unique movie genres into 37 broader categories, referred to as super-genres. This mapping was necessary as many of the original genres were either identical in essence but written differently or exhibited strong similarities that made them suitable for grouping. By consolidating these genres into broader categories, the analysis becomes more manageable, reducing the number of features from 529 to 37. This simplification not only enhances the interpretability of the dataset but also facilitates more effective comparisons and insights by focusing on overarching trends rather than granular distinctions.
+To streamline the analysis of movie data, we mapped 529 unique movie genres into 37 broader categories, referred to as super-genres. This mapping was necessary as many of the original genres were either identical in essence but written differently or exhibited strong similarities that made them suitable for grouping. By consolidating these genres into broader categories, the analysis becomes more manageable, reducing the number of features from 529 to 37. This simplification not only enhances the interpretability of the dataset but also facilitates more effective comparisons and insights by focusing on overarching trends rather than granular distinctions.\\
 Dive into the details, and click on the interactive sunburst plot to explore the composition of each broader category!
+
 
 {% include genre_sunburst.html %}
 
