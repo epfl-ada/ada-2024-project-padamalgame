@@ -23,7 +23,7 @@ def plot_sse(features_X, start=2, end=11, title = "Elbow Plot"):
     plt.title(title)
     return sse
 
-def get_dummy(df, column_name='category'):    
+def get_dummy(df, column_name='MovieCategory'):    
     df_dummies = df.assign(value=True).pivot_table(
         index='wikipedia_id', 
         columns=column_name, 
