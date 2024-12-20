@@ -213,7 +213,7 @@ Finally, we face a serious problem with collinearity which falsifies our interpr
 *Here are our findings:*
 
 ### Log Box Office:  a nice family outing
-
+{% include side_by_side_images.html image1="log_boxoffice_regression.png" alt1="box office regression" image2="log_boxoffice_regression_coef.png" alt2="box office regression coef" %}
 
 We’ll have to be careful here. As we have taken the log value of the box office, our interpretation of the coefficients will be a little different.
 **Each coefficient represents a multiplicative increase !**
@@ -230,7 +230,7 @@ Only subjectivity, fear, action & adventure are not significant at a 5% level.\\
 Features that positively impact box office are often linked to positivity and accessibility for all. The genres associated with a good box office are mostly family friendly such as family & children, romance & relationship, comedy, fantasy & science fiction. Furthermore, sadness and drama negatively impacts box office ! 
 
 ### Movie Rating: in search of thrill
-{% include side_by_side_images.html image1="log_boxoffice_regression.png" alt1="box office regression" image2="log_boxoffice_regression_coef.png" alt2="box office regression coef" %}
+{% include side_by_side_images.html image1="rating_regression.png" alt1="rating regression" image2="rating_regression_coef.png" alt2="rating regression coef" %}
 
 We’re in familiar territory again. **The coefficient represents an additive increase !**
 
@@ -265,6 +265,6 @@ Finally, it is curious that movie runtime impacts positively (albeit timidly) bo
 
 
 # Bibliography
-[1] https://github.com/cjhutto/vaderSentiment
-[2] https://huggingface.co/bhadresh-savani/distilbert-base-uncased-emotion
+[1] https://github.com/cjhutto/vaderSentiment\\
+[2] https://huggingface.co/bhadresh-savani/distilbert-base-uncased-emotion\\
 [3] https://textblob.readthedocs.io/en/dev/index.html
