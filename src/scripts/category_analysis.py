@@ -6,7 +6,8 @@ def explode_MovieGenre(df):
     """
     Separate the MovieGenre by each comma and explode the list into separate rows.
     """
-    df['MovieGenre'] = df['MovieGenre'].str.split(', ')
+    #df['MovieGenre'] = df['MovieGenre'].str.split(', ').copy()
+    df.loc[:, 'MovieGenre'] = df['MovieGenre'].str.split(', ')
     df_MovieGenre_exploded = df.explode('MovieGenre')
     return df_MovieGenre_exploded
 
@@ -27,7 +28,7 @@ def analysis_by_category(df):
     genre_counts = df_MovieGenre_exploded['MovieGenre'].value_counts()
 
     # Load the genre categories from a JSON file
-    genre_categories = load_genre_categories(os.path.abspath('data/genre_categories.json'))
+    genre_categories = load_genre_categories(os.path.abspath('../data/genre_categories.json'))
 
     # Map MovieGenre to categories
     df_MovieGenre_exploded['category'] = df_MovieGenre_exploded['MovieGenre'].map(lambda x: next((k for k, v in genre_categories.items() if x in v), 'Other'))
@@ -38,12 +39,12 @@ def analysis_by_category(df):
 
 
 def category_evolution(df): 
-    _, df = analysis_by_category(df)
-    genre_categories = load_genre_categories('data/genre_categories.json')
+    #_, df = analysis_by_category(df)
+    genre_categories = load_genre_categories('../data/genre_categories.json')
 
     category_evolution = {}
     for category in genre_categories: 
-        evolution = df[df['category'] == category]['movie_date']
+        evolution = df[df['category'] == category]['MovieYear']
         category_evolution[category] = evolution
 
     return category_evolution
