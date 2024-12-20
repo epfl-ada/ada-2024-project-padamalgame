@@ -94,6 +94,7 @@ def plot_coefficients(res, title = 'Coefficients'):
 
     plt.yticks(range(len(l2)),l2)
     plt.title(title)
+    plt.savefig(title.replace(" ", "") +'.png')
     plt.show()
 
     return
