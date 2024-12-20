@@ -46,11 +46,19 @@ Category Evolution
 
 {% include yellowwork.html %}
 
-Amidst the doubts and perils that beset our journey, fate weaves our path with that of an old grimoire. This venerable tome, passed from one alchemist to another across the ages and lands , bears the chronicles of those who, in their own wise, sought to unveil the great enigma. Thus do we come to the third stage of the alchemical journey, known as the Opus Citrinum, the Work of Yellowing, where we open our eyes towards the world and the wisdom of our peers.
+*Amid the challenges we face, we come across an ancient grimoire—a record passed down through generations of alchemists. This book holds the wisdom of those who sought to solve the great enigma. With this knowledge, we enter the third stage of our process, the Opus Citrinum, or the Work of Yellowing, where we broaden our perspective and draw on the insights of others.*
+
+![Top 25 Authors]({{ site.baseurl }}/assets/img/top_25_authors.png)
+
+These are the authors whose books have inspired the most cinematic adaptations. While some are not to be presented anymore, this can also unveil the mind behind some heroes that are now part of our collective imagination. These authors have created works that continue to resonate across generations, but each of them has had a unique strategy in how their creations are carried forward and cherished. Let’s see what these literary alchemists can reveal to us !
 
 {% include carousel_author.html %}
 
-Authors
+{% include toggler_worldmap.html %}
+
+As the wise say, travel shapes the mind and our journey takes us afar ! This allows us to have a global perspective towards adapted movies on the big screen. It is clear that the U.S. takes center stage with an astonishing number of films, leaving other nations trailing far behind—most producing just a fraction of what the U.S. achieves. In fact, many countries around the world are barely represented at all. Yet, there’s a surprising consistency in average film length, with movies typically ranging from 96 to 104 minutes no matter where they’re made. Ratings show a similar alignment, though a few countries with minimal production stand out with lower scores. The average number of votes per film also follows this trend, except for standout cases like the United Arab Emirates, where only three films have garnered an unusually high level of attention.
+
+When we narrow our focus to book adaptations, the story takes an intriguing turn: while most trends stay consistent, there’s a remarkable surge in audience engagement, with many countries seeing significantly higher vote counts for adaptations. This highlights the global appeal and impact of bringing beloved books to the big screen. We encourage you to explore this map by yourself.
 
 
 {% include redwork.html %}

@@ -1,0 +1,72 @@
+<div id="chart-container-worldmap">
+    <div id="worldmap1" class="plotly-chart">
+        {% include_relative /_includes/worldmap_all_films.html %}
+    </div>
+    <div id="worldmap2" class="plotly-chart" style="display: none;">
+        {% include_relative /_includes/worldmap_adaption_films.html %}
+    </div>
+</div>
+<div class="button-container">
+    <button id="toggle-button-worldmap" class="styled-button">Toggle view</button>
+</div>
+
+<script>
+    document.getElementById('toggle-button-worldmap').addEventListener('click', function () {
+        var chart1 = document.getElementById('worldmap1');
+        var chart2 = document.getElementById('worldmap2');
+
+        if (chart1.style.display === 'none') {
+            chart1.style.display = 'block';
+            chart2.style.display = 'none';
+        } else {
+            chart1.style.display = 'none';
+            chart2.style.display = 'block';
+        }
+    });
+</script>
+
+<style>
+    .plotly-chart {
+        width: 100%;
+        height: 500px;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        /* Center the button horizontally */
+        margin: 20px 0;
+        /* Add some margin above and below the button */
+    }
+
+    .styled-button {
+        background-color: #b5770a;
+        /* Green background */
+        border: none;
+        /* Remove borders */
+        color: white;
+        /* White text */
+        padding: 15px 32px;
+        /* Some padding */
+        text-align: center;
+        /* Centered text */
+        text-decoration: none;
+        /* Remove underline */
+        display: inline-block;
+        /* Make the button appear alongside text */
+        font-size: 16px;
+        /* Increase font size */
+        margin: 10px 2px;
+        /* Add some margin */
+        cursor: pointer;
+        /* Add a pointer cursor on hover */
+        border-radius: 4rem;
+        /* Rounded corners */
+        justify-content: center;
+    }
+
+    .styled-button:hover {
+        background-color: #805305;
+        /* Darker green on hover */
+    }
+</style>

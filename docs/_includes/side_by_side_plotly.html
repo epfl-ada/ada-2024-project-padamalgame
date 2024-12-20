@@ -11,45 +11,47 @@
     .side-by-side-plotly {
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-between; /* Added to space out the plotly containers */
     }
 
     .side-by-side-plotly .plotly-container {
         flex: 1;
-        max-width: 26rem;
-        /* Adjust this value based on your design */
+        max-width: 48%; /* Adjusted to fit two containers side by side within 100% width */
         box-sizing: border-box;
         padding: 10px;
-        /* Optional padding */
     }
 
-    .side-by-side-plotly .plotly-container>div {
+    .side-by-side-plotly .plotly-container > div {
         width: 100%;
-        height: 100%;
+        height: auto; /* Ensure the height adjusts based on content */
     }
 
     @media (max-width: 600px) {
-
-        /* Adjust the breakpoint based on your design */
         .side-by-side-plotly {
             flex-direction: column;
         }
 
         .side-by-side-plotly .plotly-container {
             min-width: 100%;
+            max-width: 100%; /* Ensure full width on smaller screens */
         }
     }
-
-    .plotly-chart {
-        width: 100% !important;
-        height: 26rem !important;
-        max-width: 26rem;
-        /* Adjust this height as needed */
-    }
-
-    .js-plotly-plot .plotly {
-        width: 100% !important;
-        height: 26rem !important;
-        max-width: 26rem;
-        /* Ensure this matches the height above */
-    }
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Trigger resize event on window to force Plotly to resize plots
+        window.dispatchEvent(new Event('resize'));
+    });
+
+    // Optional: If Plotly plots are created dynamically, use this function to resize them
+    function resizePlots() {
+        var plotlyDivs = document.querySelectorAll('.plotly-container > div');
+        plotlyDivs.forEach(function(plotlyDiv) {
+            Plotly.Plots.resize(plotlyDiv);
+        });
+    }
+
+    // Call resizePlots after a short delay to ensure plots are rendered
+    setTimeout(resizePlots, 500);
+</script>

@@ -3,34 +3,31 @@
 <div class="swiper-container">
   <div class="swiper-wrapper">
     <div class="swiper-slide" style="background-color: #ffeb99;">
-      <h1 class="carousel-title">Dickens</h1>
-      <h3 class="carousel-subtitle">The Master of Twists</h3>
-      <p>Content for slide 1...</p>
+      <img class="carousel-img" src="{{ site.baseurl }}/assets/img/Page 1.png" alt="Lewis Caroll">
+      <h1 class="carousel-title">Lewis Caroll</h1>
+      <h3 class="carousel-subtitle">A One-Hit Wonder</h3>
+      <p class="carousel-paragraph">The strategy of our first literary alchemist is both the simplest and perhaps the most
+        difficult to replicate. In 1865, Lewis Carroll wrote Alice's Adventures in Wonderland,
+        a work that has since become a timeless classic. Over the years, it has been adapted into
+        nearly 13 different films, spanning from 1915 to 2010. This remarkable success highlights
+        the enduring power of Carroll's creation, demonstrating how a single work can continue to
+        resonate with audiences and be reinterpreted across different generations. His secret ingredient ?
+        The art of a blending whimsical yet refreshing absurdity with deeper philosophical ideas.
+      </p>
     </div>
     <div class="swiper-slide" style="background-color: #ffeb99;">
-      <h1 class="carousel-title">Edgar Rice Burroughs</h1>
-      <h3 class="carousel-subtitle">The Multiplier / The Tarzamania</h3>
-      <p>Content for slide 2...</p>
-    </div>
-    <div class="swiper-slide" style="background-color: #ffeb99;">
+      <img class="carousel-img" src="{{ site.baseurl }}/assets/img/Page 2.png" alt="Agatha Christie">
       <h1 class="carousel-title">Agatha Christie</h1>
       <h3 class="carousel-subtitle">The Serial Writer</h3>
-      <p>Content for slide 3...</p>
+      <p class="carousel-paragraph">Our second alchemist's strategy is clever and captivating: Agatha Christie created the character Hercule Poirot and placed him at the center of a series of increasingly intricate adventures. Her secret lies in her mastery of intrigue, paired with the creation of an endearing character. This combination fosters a strong emotional connection with the audience, making it ideal for a series of adaptations, spin-offs, and episodic stories that keep viewers engaged. Murder and intrigue are the hallmarks of her work, be careful if you follow her leads, as they may send a chill down your spine!
+      </p>
     </div>
     <div class="swiper-slide" style="background-color: #ffeb99;">
+      <img class="carousel-img" src="{{ site.baseurl }}/assets/img/Page 3.png" alt="Jules Verne">
       <h1 class="carousel-title">Jules Verne</h1>
-      <h3 class="carousel-subtitle">The Twenty Thousands Ideas</h3>
-      <p>Content for slide 4...</p>
-    </div>
-    <div class="swiper-slide" style="background-color: #ffeb99;">
-      <h1 class="carousel-title">Jane Austen</h1>
-      <h3 class="carousel-subtitle">The Unveiler of Prejudices</h3>
-      <p>Content for slide 5...</p>
-    </div>
-    <div class="swiper-slide" style="background-color: #ffeb99;">
-      <h1 class="carousel-title">Victor Hugo</h1>
-      <h3 class="carousel-subtitle">The Legend of the Century</h3>
-      <p>Content for slide 6...</p>
+      <h3 class="carousel-subtitle">The 20 Thousands Ideas</h3>
+      <p class="carousel-paragraph">Our last but not least alchemist pushes the boundaries of imagination. Jules Verne's strategy was to create a vast array of novels, each with unique characters and worlds. Despite the distinctiveness of each universe, whether set under the sea or in space, every story holds an adventure that consistently attracts interest and adaptation. Verne’s genius lies in crafting tales so compelling that they all translate into successful box-office films, regardless of the generations. 20,000 Leagues Under the Sea or Around the World in 80 Days are among those familiar stories, deeply rooted in the narratives that have shaped our childhood and beyond.
+      </p>
     </div>
   </div>
 
@@ -78,6 +75,19 @@
     font-size: 1em;
     text-align: center;
     color: #000;
+  }
+
+  .carousel-paragraph {
+    margin: 0 2rem;
+    font-size: 0.75em;
+    font-family: 'Domine', serif;
+    text-align: center;
+    color: #000;
+  }
+
+  .carousel-img {
+    width: 15rem;
+    height: auto;
   }
 
   /* Position pagination at the bottom of the swiper container */
