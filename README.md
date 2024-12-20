@@ -1,7 +1,14 @@
 # From Page to Screen: The Powerful Influence of Literature on Cinema ?
 
 # Website URL 
-[Link To Our Website](https://example.com) We hope you enjoy :)
+[Link To Our Website](https://epfl-ada.github.io/ada-2024-project-padamalgame/) We hope you enjoy :)
+
+# Contributions
+- Christelle:
+- Hugo:
+- Julia:
+- Mallory:
+- Iris:
 
 # Abstract 
 
