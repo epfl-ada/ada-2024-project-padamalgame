@@ -11,7 +11,7 @@
     height: 100vh;
     min-height: 100vh;
     text-align: left;
-    padding: 6rem 0;
+    padding: 4rem 0;
     background-color: #5d3a11;
     background-image: url({{ site.baseurl }}/assets/img/image.png);
     background-repeat: no-repeat;
@@ -30,8 +30,7 @@
 
 .project-name { font-family: 'Cinzel', serif; font-weight: 500;}
 
-.project-tagline { margin-top: 3em; }
-.project-subtitle { margin-top: 4rem; margin-bottom: 2rem; font-size: 1.5rem; align-self: flex-start; font-family: 'Cinzel', serif; font-weight: 500;}
+.project-subtitle { margin-top: 3rem; margin-bottom: 2rem; font-size: 1.5rem; align-self: flex-start; font-family: 'Cinzel', serif; font-weight: 500;}
 
 .main-content { padding: 0 6rem;}
 

@@ -20,10 +20,9 @@
       <div class="header-container">
         <h2 class="project-subtitle">From Page to Screen</h2>
         <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
-        <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
-      </div>
+        </div>
       {% if site.github.is_project_page %}
-        <a href="{{ site.github.repository_url }}" class="btn" style="margin-top: 2em;">View on GitHub</a>
+        <a href="{{ site.github.repository_url }}" class="btn" style="margin-top: 4rem;">View on GitHub</a>
       {% endif %}
     </header>
 

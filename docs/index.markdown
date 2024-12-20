@@ -103,27 +103,68 @@ When we narrow our focus to book adaptations, the story takes an intriguing turn
 
 # Genre clustering
 
-In order to better understand movie genres and how they interact we have applied dimensionality reduction and K-means in order to identify the main cluster and their characteristics. We chose t-SNE as our dimensionality reduction method in order to allow for non-linear relations and applied K-means after t-SNE to mitigate the curse of dimensionality as we have 30 genres and hence 30 features!
-
+In order to better understand movie genres and how they interact we have applied dimensionality reduction and K-means in order to identify the main clusters and their characteristics. We chose t-SNE as our dimensionality reduction method in order to allow for non-linear relations and applied K-means after t-SNE to mitigate the curse of dimensionality as we have 30 features !\\ 
 In order to pick the ideal number of clusters, we used the elbow method. 
-As we can see, for adapted movies, a good number of clusters is 11. 
+
 
 {% include side_by_side_images.html image1="elbow_plot_adapted.png" alt1="elbow plot for adapted movies" image2="elbow_plot_all.png" alt2="elbow plot for all movies" %}
 
+As we can see, for adapted movies, a good number of clusters is 11. 
+
 However, for all movies the ideal number of clusters is less clear as there is no defined elbow, so we have therefore tried to find a good balance and picked 16 clusters.\\
 This is interesting as it implies that adapted movies have more defined and stronger genre clusters.\\
-It is quite visible when comparing the two clustering graphs ! 
+It is quite visible when comparing the two clustering graphs!
 
 {% include side_by_side_plotly.html plotly1="adapted_movies_cluster.html" plotly2="all_movies_cluster.html" %}
 
-
 Let’s now dig deeper and look into the clusters of adapted movies:
 
-[INSERT TABLE HERE]
+{% include adapted_movies_cluster_stats.html %}
 
-[CLUSTER LIST]
+**Overall statistics**\\
+avg box office: 7.84e+07\\
+variance box office: 1.41e+08\\
+avg rating: 6.45\\
+variance rating: 254\\
 
-**So to maximise your chances of success, you can have two strategies. Either you play it safe and make an animated, family friendly movie (cluster 5) in order to be universally enjoyed and have a decent box office, or you go all in: high risks but high rewards with a nice thriller (cluster 7).**
+
+**Cluster 0**\\
+This cluster is very average. Average box office, average rating, most common genres. You get the picture, it’s the average Joe… It helps to explain why it is also one of the biggest clusters !
+
+**Cluster 1**\\
+It regroups horror, thriller and sci-fi. This one will get your heart beating. It is one of the biggest clusters (to my great regret…) It is quite successful at the box office on average however these movies seem to be hit or miss as the variance is quite high. The rating on the other hand is systematically low …
+
+**Cluster 2**\\
+Here we have old school movies. Silent films, classics, gangster movies, period pieces, you name it. Unfortunately for the nostalgic folk, they aren’t very successful as they have a low box office (which is likely due to inflation!) and low rating on average, along with a low variance for both. 
+
+**Cluster 3**\\
+Nothing to see here… Similar to cluster 0, with less romance and more family movies. 
+
+**Cluster 4**\\
+We now have family and kid oriented movies. Prepare yourself for lots of animations, comedy and fantasy. It is the best performing cluster on rating, with the highest average and lowest variance ! It does not shine as bright with its box office, however it is nonetheless a promising cluster.
+
+**Cluster 5**\\
+It mixes action, comedy, sci-fi and thriller. An unnoteworthy cluster with consistently low box office and rating.
+
+**Cluster 6**\\
+This cluster is for thrill chasers with crime, action and horror. A good performer at the box office, although somewhat unsteady, and an average and unvarying rating.
+
+**Cluster 7**\\
+A cluster for the nostalgic romantic with a whimsical soul. It is the highest performing cluster in terms of box office. Romance wins again !
+
+**Cluster 8**\\
+An alliance of family movies, comedy and musicals: a more lighthearted cluster.
+It has the lowest box office and highest rating variance which suggests mixed reviews…
+
+**Cluster 9**\\
+We’ve seen it before, a blend of action, thriller and fantasy, but this time with a historical twist ! Not a very promising cluster with a high variance, mediocre box office and a low rating… 
+
+**Cluster 10**\\
+The smallest cluster, featuring niche and classic genres. It has the third-highest box office average but significant variability. These movies seem to leave the public unimpressed according to average rating. 
+
+**Conclusion**\\
+So to maximise your chances of success, you can have two strategies. Either you play it safe and make an animated, family friendly movie (cluster 4) in order to be universally enjoyed and have a decent box office, or you go all in: high risks but high rewards with a whirlwind romance (cluster 7).
+
 
 # Sentiment Analysis
 
@@ -131,18 +172,19 @@ The comparison of book and movie plots using sentiment analysis reveals intrigui
 
 ### Methods and Metrics
 
-1. VADER[1] : 
+1. VADER[1]:\\
 This lexicon and rule-based tool computes a compound sentiment score (ranging from -1 to +1) and proportions of text classified as positive, neutral, or negative.
 
-2. BERT-based Classifier[2]:
- Fine-tuned on a Twitter sentiment analysis dataset, it identifies six emotions: sadness, joy, love, anger, fear, and surprise.
+2. BERT-based Classifier[2]:\\
+Fine-tuned on a Twitter sentiment analysis dataset, it identifies six emotions: sadness, joy, love, anger, fear, and surprise.
 
-3. TextBlob[3]: 
+3. TextBlob[3]:\\
 Outputs include polarity, measuring sentiment from very negative to very positive, and subjectivity, assessing the degree of personal opinion or bias.
 
-![ImageTest]({{ site.baseurl }}/assets/img/book-movie_plot_correlation.jpg)
+![Movie Plot Correlation]({{ site.baseurl }}/assets/img/book-movie_plot_correlation.jpg)
 
-The sentiment scores between book and movie plots showed significant Spearman correlations for most metrics which suggests that films faithfully follow book sentiment. However, certain scores exhibited notable discrepancies:
+The sentiment scores between book and movie plots showed significant Spearman correlations for most metrics which suggests that films faithfully follow book sentiment.\\
+However, certain scores exhibited notable discrepancies:
 
 The strongest correlation was observed in negative sentiment and fear. These findings suggest that darker emotional tones and intense moments in books tend to translate effectively into their movie adaptations.
 
@@ -151,9 +193,7 @@ Polarity or emotional extremes in books may be softened or exaggerated in movies
 
 Visual storytelling in movies could introduce objectivity or dilute the personal perspective offered in books.
 
-
 Love and Surprise may be interpreted differently due to pacing or narrative restructuring during adaptation.
-
 
 This analysis underscores how certain sentiments, especially negative and fear-based tones, are effectively preserved in film adaptations. In contrast, emotions like love and surprise, as well as subjective viewpoints, may be more susceptible to alteration when transitioning from text to screen. However, it is important to note that the book plots and movie plots are derived from two different sources. This lack of correlation may simply reflect one plot being written more subjectively than the other.
 
@@ -166,18 +206,17 @@ In order to understand which factors are the most important to determine success
 - most common languages: english, french, german, spanish
 - most common genres: action & adventure, comedy, crime & gangster, drama, family & children, fantasy & science fiction, historical & period, horror & supernatural, romance & relationship, thrillers & mystery, other 
 
-When plotting the data, we observe that the box office seems to have a heavy tailed distribution, we therefore run our regression on the log box office and see that it does indeed improve R squared (or explained variance) !
+When plotting the data, we observe that the box office seems to have a heavy tailed distribution, we therefore run our regression on the log box office and see that it does indeed improve R squared (or explained variance)!
 
 Finally, we face a serious problem with collinearity which falsifies our interpretation of the coefficients. We combat it with a technique called forward selection which greedily selects the best features until our metric isn’t improved by the addition of a new feature. We now have our most important features and can safely run OLS without fearing collinearity too much ! 
 
 *Here are our findings:*
 
 ### Log Box Office:  a nice family outing
-[INSERT BOX OFFICE OLS SUMMARY PNG HERE] 	[INSERT BOX OFFICE COEF PLOT HERE]
-[TOGGLE BUTTON]
+
 
 We’ll have to be careful here. As we have taken the log value of the box office, our interpretation of the coefficients will be a little different.
-Each coefficient represents a multiplicative increase !  
+**Each coefficient represents a multiplicative increase !**
 
 The forward selection algorithm has picked 14 features out of the original 29: 
 - movie runtime
@@ -190,10 +229,10 @@ Only subjectivity, fear, action & adventure are not significant at a 5% level.\\
 Features that positively impact box office are often linked to positivity and accessibility for all. The genres associated with a good box office are mostly family friendly such as family & children, romance & relationship, comedy, fantasy & science fiction. Furthermore, sadness and drama negatively impacts box office ! 
 
 ### Movie Rating: in search of thrill
-[INSERT RATING OLS SUMMARY PNG HERE] 	[INSERT RATING COEF PLOT HERE]
-[TOGGLE BUTTON]
+{% include side_by_side_images.html image1="log_boxoffice_regression.png" alt1="box office regression" image2="log_boxoffice_regression_coef.png" alt2="box office regression coef" %}
 
-We’re in familiar territory again. The coefficient represents an additive increase !
+We’re in familiar territory again. **The coefficient represents an additive increase !**
+
 The forward selection algorithm has picked 15 features out of the original 29: 
 - movie runtime
 - book rating
@@ -201,22 +240,24 @@ The forward selection algorithm has picked 15 features out of the original 29:
 - genres: fantasy & science fiction, action & adventure, drama, other genre, crime & gangster, horror & supernatural
 - languages:  spanish, german, french
 
-We have an R squared value of 29.8%, not too shabby for only 15 features !
+We have an R squared value of 0.268 which means that we can explain 26% of box office variance. It ain’t much but it’s honest work !\\ 
+Only negative sentiment, surprise, compound sentiment and action & adventure do not have a significant pvalue at a 5% level. Negative sentiment, with a pvalue at 92% can be considered insignificant however the others should still be considered even if it is with a pinch of salt.\\
+Interestingly, surprise positively impacts movie rating whilst neutrality negatively impacts it.\\
+It suggests that viewers value thrills and emotions.\\
+The fact that the positively impactful genres are fantasy & science fiction, drama and crime & gangster supports this claim. However, there seems to be a limit as the horror & supernatural genre negatively impacts ratings. A bit of thrill but nothing too scary !
 
-Only negative sentiment, surprise, compound sentiment and action & adventure do not have a significant pvalue at a 5% level. Negative sentiment, with a pvalue at 92% can be considered insignificant however the others should still be considered, however with a pinch of salt.\\
-Interestingly, surprise positively impacts movie rating whilst neutrality negatively impacts it.
-It suggests that viewers value thrills and emotions !\\
-The fact that the positively impactful genres are fantasy & science fiction, drama and crime & gangster supports this claim ! However, they seem to have their limits as the horror & supernatural genre negatively impacts ratings. A bit of thrill but nothing too scary. 
 
 ### Overview: a paradox galore 
 
-Unsurprisingly, sentiments are often insignificant. Indeed, they are the least reliable as they are calculated from the movie plot which does not perfectly transcribe movie sentiments and on top of which we use imperfect metrics.\\
-Interestingly, book rating impacts movie rating significantly whilst it does not impact box office.
-
+Unsurprisingly, sentiments are often insignificant. Indeed, they are the least reliable as they are calculated from the movie plot which does not perfectly transcribe movie sentiments, on top of which we use imperfect metrics.\\
+Interestingly, book rating impacts movie rating significantly whilst it does not impact box office.\\
 Furthermore, English and Spanish positively impact box office whilst French, Spanish and German positively impact movie rating !
-It seems coherent that english and spanish positively impact box office as they are the two of the most widely spoken languages and it opens the movie up to a larger audience. However, interestingly when it is not the “dominant” language, users tend to be kinder and rate the movie better !
 
-Finally, it is curious that movie runtime impacts positively (albeit timidly) both box office and movie rating. There are many possible theories, it probably stems from an unobserved covariate. Maybe famous directors have more successful movies and with a longer runtime (we’re looking at you Christopher Nolan). Maybe longer book trilogies lead to long runtimes and to greater success (hello Dune). Who knows ! But it’s a good reminder that there are still many unobserved variables which significantly impact box office and rating success. There’s still much to discover ! 
+It seems coherent that english and spanish positively impact box office as they are two of the most widely spoken languages and hence open the movie up to a larger audience. However, interestingly when it is not the “dominant” language, users tend to be kinder and rate the movie better ! 
+
+Finally, it is curious that movie runtime impacts positively (albeit timidly) both box office and movie rating. There are many possible theories; it probably stems from an unobserved covariate. Maybe famous directors have more successful movies with a longer runtime (we’re looking at you Christopher Nolan). Maybe longer book trilogies lead to longer runtimes and to greater success (hello Dune). Who knows ! But it’s a good reminder that there are still many unobserved variables which significantly impact box office and rating success. There’s still much to discover ! 
 
 
 {% include conclusion.html %}
+
+*And so, we reach the end of this journey, where books and cinema converge in the same vision. Along the way, we’ve uncovered the intricate processes that shape raw narratives into cinematic marvels and seen how these adaptations leave their mark on the world of the silver screen. This is not just an end but an invitation, a reminder of the enduring power of storytelling to bridge worlds and create something entirely new, one frame and one word at a time.*
