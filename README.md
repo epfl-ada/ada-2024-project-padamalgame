@@ -4,7 +4,7 @@
 [Link to our website](https://epfl-ada.github.io/ada-2024-project-padamalgame/), we hope you enjoy :)
 
 # Contributions
-- Christelle:
+- Christelle: genre to category mapping, preliminary data analysis, graph plotting, box-office analysis, final refactoring
 - Hugo:
 - Julia:
 - Mallory:
