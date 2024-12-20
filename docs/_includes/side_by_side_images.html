@@ -1,0 +1,42 @@
+<div class="side-by-side-images">
+    <div class="image-container">
+        <img src="{{ site.baseurl }}/assets/img/{{ include.image1 }}" alt="{{ include.alt1 }}">
+    </div>
+    <div class="image-container">
+        <img src="{{ site.baseurl }}/assets/img/{{ include.image2 }}" alt="{{ include.alt2 }}">
+    </div>
+</div>
+
+<style>
+    .side-by-side-images {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .side-by-side-images .image-container {
+        flex: 1;
+        min-width: 300px;
+        /* Adjust this value based on your design */
+        box-sizing: border-box;
+        padding: 10px;
+        /* Optional padding */
+    }
+
+    .side-by-side-images .image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    @media (max-width: 600px) {
+
+        /* Adjust the breakpoint based on your design */
+        .side-by-side-images {
+            flex-direction: column;
+        }
+
+        .side-by-side-images .image-container {
+            min-width: 100%;
+        }
+    }
+</style>

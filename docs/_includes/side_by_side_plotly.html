@@ -1,0 +1,55 @@
+<div class="side-by-side-plotly">
+    <div class="plotly-container">
+        {% include {{ include.plotly1 }} %}
+    </div>
+    <div class="plotly-container">
+        {% include {{ include.plotly2 }} %}
+    </div>
+</div>
+
+<style>
+    .side-by-side-plotly {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .side-by-side-plotly .plotly-container {
+        flex: 1;
+        max-width: 26rem;
+        /* Adjust this value based on your design */
+        box-sizing: border-box;
+        padding: 10px;
+        /* Optional padding */
+    }
+
+    .side-by-side-plotly .plotly-container>div {
+        width: 100%;
+        height: 100%;
+    }
+
+    @media (max-width: 600px) {
+
+        /* Adjust the breakpoint based on your design */
+        .side-by-side-plotly {
+            flex-direction: column;
+        }
+
+        .side-by-side-plotly .plotly-container {
+            min-width: 100%;
+        }
+    }
+
+    .plotly-chart {
+        width: 100% !important;
+        height: 26rem !important;
+        max-width: 26rem;
+        /* Adjust this height as needed */
+    }
+
+    .js-plotly-plot .plotly {
+        width: 100% !important;
+        height: 26rem !important;
+        max-width: 26rem;
+        /* Ensure this matches the height above */
+    }
+</style>

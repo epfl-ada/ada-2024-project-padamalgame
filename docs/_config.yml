@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: The Powerful Influence of Literature on Cinema ?
+title: 'Data Alchemy: Transforming Literature into Cinema'
 email: mallory.henriet@epfl.ch
 description: >- # this means to ignore newlines until "baseurl:"
   We will analyze what kind of books are adapted to movies?

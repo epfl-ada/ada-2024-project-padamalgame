@@ -5,32 +5,42 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Domine:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
 
 .page-header { 
     height: 100vh;
     min-height: 100vh;
     text-align: left;
-    padding: 5rem 12rem;
+    padding: 6rem 0;
     background-color: #5d3a11;
     background-image: url({{ site.baseurl }}/assets/img/image.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     background-blend-mode: multiply;
+    margin-bottom: 10vh;
     font-family: 'Domine', serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.project-name { max-width: 64rem; }
+.header-container { width: 52rem; max-width: 52rem;}
 
-.project-tagline { width: 50vw; margin-top: 3em; }
-.project-subtitle { font-family: 'Bonheur Royale', cursive; margin-top: 2em; margin-bottom: 0.1em; font-size: 3em; opacity: 0.7;}
+.project-name { font-family: 'Cinzel', serif; font-weight: 500;}
 
-.main-content { width: 76rem; max-width: 76rem;}
+.project-tagline { margin-top: 3em; }
+.project-subtitle { margin-top: 4rem; margin-bottom: 2rem; font-size: 1.5rem; align-self: flex-start; font-family: 'Cinzel', serif; font-weight: 500;}
 
-.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {color: #5d3a11; font-family: 'Domine', serif;}
+.main-content { padding: 0 6rem;}
 
-.main-content h2 {font-family: 'Bonheur Royale', cursive; font-size: 6em;}
-.main-content h3 {font-size: 1em;}
+.main-content h1, .main-content h2, .main-content h3, .main-content h5, .main-content h6 {color: #5d3a11; font-family: 'Domine', serif;}
+
+.main-content h1 {font-size: 2rem;}
+.main-content h2 {font-family: 'Bonheur Royale', cursive; font-size: 5rem;}
+.main-content h3 {font-size: 1rem; font-weight: 500;}
+.main-content h4 {color: #5d3a11; font-size: 2rem;}
 
 .book-section {
     background-color: #ffeb99; /* Pastel yellow beige color */
@@ -53,13 +63,15 @@
 .book-title {
     z-index: 1;
     position: relative;
-    max-width: 64rem;
-    width: 64rem;
+    max-width: 52rem;
+    width: 52rem;
 }
 
 .book-subtitle {
     z-index: 1;
     position: relative;
-    max-width: 64rem;
-    width: 64rem;
+    max-width: 52rem;
+    width: 52rem;
+    font-family: 'Cinzel', serif;
+    color: #5d3a11;
 }
