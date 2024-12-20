@@ -12,6 +12,26 @@ from statsmodels.stats.outliers_influence import variance_inflation_factor
 
 
 def create_regression_dataset(genre_categories):
+    """
+    Creates a regression dataset from adapted movies data and their sentiments.
+    Args:
+        genre_categories (list): List of genre categories to be used for analysis.
+    Returns:
+        pd.DataFrame: A DataFrame containing the processed data ready for regression analysis.
+    The function performs the following steps:
+    1. Reads the adapted movies data and selects specific features.
+    2. Drops rows with missing values in 'MovieBoxOffice', 'MoviePlot', and 'MovieRating'.
+    3. Removes duplicate entries based on 'wikipedia_id'.
+    4. Reads the movie sentiments data and merges it with the adapted movies data.
+    5. Fills missing values in 'MovieRuntime', 'BookRating', and 'MovieRatingNb' with their respective means.
+    6. Dummifies the 'MovieLanguage' column, keeping the top 4 languages and grouping the rest as 'Other Language'.
+    7. Dummifies the 'MovieGenre' column based on the provided genre categories, keeping the top 10 genres and grouping the rest as 'Other Genre'.
+    8. Renames columns to remove spaces and special characters.
+    9. Drops the 'OtherLanguage' column and any remaining duplicates based on 'wikipedia_id'.
+    10. Saves the processed data to 'data/linear_regression_data.csv'.
+    Note:
+        The function assumes the existence of 'data/adapted_movies.csv' and 'data/adapted_movies_sentiments.csv' files.
+    """
     features = ['wikipedia_id', 'BookRating', 'MovieYear', 'MovieLanguage', 'MovieRuntime', 'MovieRating', 'MovieBoxOffice', 'MoviePlot', 'MovieRatingNb']
     adapted_movies_df = pd.read_csv('data/adapted_movies.csv')[features]
     adapted_movies_df = adapted_movies_df.dropna(subset=['MovieBoxOffice', 'MoviePlot', 'MovieRating']).reset_index(drop=True)
@@ -46,6 +66,15 @@ def create_regression_dataset(genre_categories):
 
 
 def train_linear_regression(data, formula):
+    """
+    Trains a linear regression model using the provided data and formula.
+    Args:
+        data (pandas.DataFrame): The dataset containing the variables specified in the formula.
+        formula (str): A string representing the formula for the linear regression model. 
+                    The formula should be in the format 'response ~ predictor1 + predictor2 + ...'.
+    Returns:
+        statsmodels.regression.linear_model.RegressionResultsWrapper: The fitted linear regression model results.
+    """
     model = smf.ols(formula=formula, data=data)
     np.random.seed(2)
     results = model.fit()
@@ -53,8 +82,14 @@ def train_linear_regression(data, formula):
 
     return results
 
-def exploratory_plot(data, y):
 
+def exploratory_plot(data, y):
+    """
+    Generates scatter plots for each feature in the dataset against the target variable.
+    Args:
+        data (pandas.DataFrame): The input dataframe containing the dataset.
+        y (str): The name of the target variable column.
+    """
     feature_columns = [column for column in data.columns if (column != y and column != 'MovieGenre' and column != 'wikipedia_id')]
     num_features = len(feature_columns)
 
@@ -78,7 +113,17 @@ def exploratory_plot(data, y):
 
     return
 
+
 def plot_coefficients(res, title = 'Coefficients'):
+    """
+    Plots the coefficients of a linear regression model with error bars.
+    Args:
+        res (statsmodels.regression.linear_model.RegressionResultsWrapper): The result object from a fitted linear regression model.
+        title (str, optional): The title of the plot. Default is 'Coefficients'.
+    The function creates a plot of the coefficients of the linear regression model, including error bars representing 
+    the standard errors of the coefficients. The plot is saved as a PNG file with the title as the filename (spaces 
+    replaced by underscores) and displayed.
+    """
     variables = res.params.index    
     coefficients = res.params.values
     p_values = res.pvalues
@@ -99,7 +144,19 @@ def plot_coefficients(res, title = 'Coefficients'):
 
     return
 
+
 def compute_vif(df):
+    """
+    Compute the Variance Inflation Factor (VIF) for each feature in the given DataFrame.
+    VIF measures how much the variance of a regression coefficient is inflated due to multicollinearity 
+    with other features in the dataset. A high VIF indicates a high correlation between the feature and 
+    other features, which can be problematic in regression analysis.
+    Args:
+        df (pandas.DataFrame): The input DataFrame containing the features for which VIF is to be computed.
+    Returns:
+        pandas.DataFrame: A DataFrame containing two columns - 'Feature' and 'VIF'. 'Feature' lists the 
+                        names of the features, and 'VIF' lists their corresponding VIF values.
+    """
     vif_data = pd.DataFrame()
     vif_data["Feature"] = df.columns
     vif_data["VIF"] = [variance_inflation_factor(df.values, i) for i in range(df.shape[1])]
@@ -109,7 +166,11 @@ def compute_vif(df):
 
 def explode_MovieGenre(df):
     """
-    Separate the MovieGenre by each comma and explode the list into separate rows.
+    Separate the MovieGenre column by each comma and explode the list into separate rows.
+    Args:
+        df (pandas.DataFrame): The input DataFrame containing a 'MovieGenre' column with genres separated by commas.
+    Returns:
+        pandas.DataFrame: A DataFrame with each genre in the 'MovieGenre' column separated into individual rows.
     """
     df['MovieGenre'] = df['MovieGenre'].str.split(', ')
     df_MovieGenre_exploded = df.explode('MovieGenre')
@@ -117,6 +178,16 @@ def explode_MovieGenre(df):
     
 
 def analysis_by_category(df, genre_categories): 
+    """
+    Analyze the movie data by genre categories.
+    Args:
+        df (pd.DataFrame): DataFrame containing movie data with a 'MovieGenre' column.
+        genre_categories (dict): Dictionary where keys are category names and values are lists of genres belonging to those categories.
+    Returns:
+        tuple: A tuple containing:
+            - genre_category_counts (pd.Series): A Series with the count of movies in each genre category.
+            - df_MovieGenre_exploded (pd.DataFrame): The original DataFrame with the 'MovieGenre' column exploded into individual genres and a new 'category' column.
+    """
     # Separate the MovieGenre and explode the list into separate rows
     df_MovieGenre_exploded = explode_MovieGenre(df)
 
@@ -130,7 +201,17 @@ def analysis_by_category(df, genre_categories):
     genre_category_counts = df_MovieGenre_exploded['category'].value_counts()
     return genre_category_counts, df_MovieGenre_exploded
 
+
 def backward_elimination(data, target, predictors):
+    """
+    Perform backward elimination to select features based on AIC (Akaike Information Criterion).
+    Args:
+        data (pandas.DataFrame): The dataset containing the features and target variable.
+        target (str): The name of the target variable in the dataset.
+        predictors (list of str): A list of predictor variable names to consider for the model.
+    Returns:
+        list of str: A list of selected features after performing backward elimination.
+    """
     selected_features = predictors.copy()
     while len(selected_features) > 0:
         aic_with_candidates = []
@@ -155,7 +236,17 @@ def backward_elimination(data, target, predictors):
 
     return selected_features
 
+
 def forward_selection(data, target, predictors):
+    """
+    Perform forward selection to identify the best set of features for a linear regression model based on AIC.
+    Args:
+        data (pandas.DataFrame): The dataset containing the target and predictor variables.
+        target (str): The name of the target variable.
+        predictors (list of str): A list of predictor variable names to consider for the model.
+    Returns:
+        list of str: The list of selected features that result in the lowest AIC.
+    """
     remaining_features = predictors.copy()
     selected_features = []
     best_aic = float('inf')  # Initialize with a very high AIC value

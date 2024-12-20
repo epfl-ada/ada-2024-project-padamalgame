@@ -1,3 +1,4 @@
+# Mapping from country name to ISO code
 mapping_to_iso = {}
 mapping_to_iso['Aruba'] = 'ABW'
 mapping_to_iso['Afghanistan'] = 'AFG'
@@ -292,6 +293,7 @@ mapping_to_iso['South Africa'] = 'ZAF'
 mapping_to_iso['Zambia'] = 'ZMB'
 mapping_to_iso['Zimbabwe'] = 'ZWE'
 
+# Mapping from ISO code to country name
 mapping_to_country= {}
 mapping_to_country['ABW'] = 'Aruba'
 mapping_to_country['AFG'] = 'Afghanistan'
@@ -548,17 +550,43 @@ mapping_to_country['ZAF'] = 'South Africa'
 mapping_to_country['ZMB'] = 'Zambia'
 mapping_to_country['ZWE'] = 'Zimbabwe'
 
+
 def get_mapping():
+    """
+    Retrieve the mapping of country names to their ISO codes.
+    Returns:
+        dict: A dictionary where the keys are country names and the values are their corresponding ISO codes.
+    """
     return mapping_to_iso
 
+
 def country_to_iso_code(country):
+    """
+    Convert a country name to its corresponding ISO code.
+    Args:
+        country (str): The name of the country to convert.
+    Returns:
+        str: The ISO code of the country if found in the mapping, otherwise an empty string.
+    Prints:
+        A message indicating that no code was found for the given country if it is not in the mapping.
+    """
     if country in mapping_to_iso:
         return mapping_to_iso[country]
     else:
         print("no code for <" + country + ">")
         return ""
     
+
 def iso_to_country(iso):
+    """
+    Convert an ISO country code to its corresponding country name.
+    Args:
+        iso (str): The ISO country code to convert.
+    Returns:
+        str: The country name of the ISO code if found in the mapping, otherwise an empty string.
+    Prints:
+        A message indicating that no country was found for the given ISO code if it is not in the mapping.
+    """
     if iso in mapping_to_country:
         return mapping_to_country[iso]
     else:
