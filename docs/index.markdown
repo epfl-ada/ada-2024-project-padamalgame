@@ -84,7 +84,7 @@ The list of the top 10 movies with the highest adjusted box office reveals a fas
 
 *Amid the challenges we face, we come across an ancient grimoire—a record passed down through generations of alchemists. This book holds the wisdom of those who sought to solve the great enigma. With this knowledge, we enter the third stage of our process, the Opus Citrinum, or the Work of Yellowing, where we broaden our perspective and draw on the insights of others.*
 
-![Top 25 Authors]({{ site.baseurl }}/assets/img/top_25_authors.png)
+![Top 25 Authors]({{ site.baseurl }}/assets/img/Number_of_Movies_Adapted_from_Books_per_Author.png)
 
 These are the authors whose books have inspired the most cinematic adaptations. While some are not to be presented anymore, this can also unveil the mind behind some heroes that are now part of our collective imagination. These authors have created works that continue to resonate across generations, but each of them has had a unique strategy in how their creations are carried forward and cherished. Let’s see what these literary alchemists can reveal to us !
 
@@ -103,9 +103,9 @@ When we narrow our focus to book adaptations, the story takes an intriguing turn
 
 # Genre clustering
 
-In order to better understand movie genres and how they interact we have applied dimensionality reduction and K-means in order to identify the main clusters and their characteristics. We chose t-SNE as our dimensionality reduction method in order to allow for non-linear relations and applied K-means after t-SNE to mitigate the curse of dimensionality as we have 30 features !\\ 
-In order to pick the ideal number of clusters, we used the elbow method. 
+In order to better understand movie genres and how they interact we have applied dimensionality reduction and K-means in order to identify the main clusters and their characteristics. We chose t-SNE as our dimensionality reduction method in order to allow for non-linear relations and applied K-means after t-SNE to mitigate the curse of dimensionality as we have 30 features !
 
+In order to pick the ideal number of clusters, we used the elbow method. 
 
 {% include side_by_side_images.html image1="elbow_plot_adapted.png" alt1="elbow plot for adapted movies" image2="elbow_plot_all.png" alt2="elbow plot for all movies" %}
 
@@ -125,7 +125,7 @@ Let’s now dig deeper and look into the clusters of adapted movies:
 avg box office: 7.84e+07\\
 variance box office: 1.41e+08\\
 avg rating: 6.45\\
-variance rating: 254\\
+variance rating: 254
 
 
 **Cluster 0**\\
@@ -224,7 +224,8 @@ The forward selection algorithm has picked 14 features out of the original 29:
 - genres: family & children, thrillers & mysteries, fantasy & science fiction, comedy, romance & relationship, historical & period, action & adventure, drama
 - languages: english, spanish
 
-We have an R squared value of 0.268 which means that we can explain 26% of box office variance. It ain’t much but it’s honest work !\\
+We have an R squared value of 0.268 which means that we can explain 26% of box office variance. It ain’t much but it’s honest work !
+
 Only subjectivity, fear, action & adventure are not significant at a 5% level.\\
 Features that positively impact box office are often linked to positivity and accessibility for all. The genres associated with a good box office are mostly family friendly such as family & children, romance & relationship, comedy, fantasy & science fiction. Furthermore, sadness and drama negatively impacts box office ! 
 
@@ -261,3 +262,9 @@ Finally, it is curious that movie runtime impacts positively (albeit timidly) bo
 {% include conclusion.html %}
 
 *And so, we reach the end of this journey, where books and cinema converge in the same vision. Along the way, we’ve uncovered the intricate processes that shape raw narratives into cinematic marvels and seen how these adaptations leave their mark on the world of the silver screen. This is not just an end but an invitation, a reminder of the enduring power of storytelling to bridge worlds and create something entirely new, one frame and one word at a time.*
+
+
+# Bibliography
+[1] https://github.com/cjhutto/vaderSentiment
+[2] https://huggingface.co/bhadresh-savani/distilbert-base-uncased-emotion
+[3] https://textblob.readthedocs.io/en/dev/index.html
