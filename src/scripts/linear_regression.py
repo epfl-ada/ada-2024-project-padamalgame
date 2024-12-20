@@ -14,53 +14,47 @@ from statsmodels.stats.outliers_influence import variance_inflation_factor
 def create_regression_dataset(genre_categories):
     """
     Creates a regression dataset from adapted movies data and their sentiments.
+    The function assumes the existence of 'data/adapted_movies.csv' and 'data/adapted_movies_sentiments.csv' files.
     Args:
         genre_categories (list): List of genre categories to be used for analysis.
     Returns:
         pd.DataFrame: A DataFrame containing the processed data ready for regression analysis.
-    The function performs the following steps:
-    1. Reads the adapted movies data and selects specific features.
-    2. Drops rows with missing values in 'MovieBoxOffice', 'MoviePlot', and 'MovieRating'.
-    3. Removes duplicate entries based on 'wikipedia_id'.
-    4. Reads the movie sentiments data and merges it with the adapted movies data.
-    5. Fills missing values in 'MovieRuntime', 'BookRating', and 'MovieRatingNb' with their respective means.
-    6. Dummifies the 'MovieLanguage' column, keeping the top 4 languages and grouping the rest as 'Other Language'.
-    7. Dummifies the 'MovieGenre' column based on the provided genre categories, keeping the top 10 genres and grouping the rest as 'Other Genre'.
-    8. Renames columns to remove spaces and special characters.
-    9. Drops the 'OtherLanguage' column and any remaining duplicates based on 'wikipedia_id'.
-    10. Saves the processed data to 'data/linear_regression_data.csv'.
-    Note:
-        The function assumes the existence of 'data/adapted_movies.csv' and 'data/adapted_movies_sentiments.csv' files.
     """
+    # 1. Read the adapted movies data and selects specific features.
     features = ['wikipedia_id', 'BookRating', 'MovieYear', 'MovieLanguage', 'MovieRuntime', 'MovieRating', 'MovieBoxOffice', 'MoviePlot', 'MovieRatingNb']
     adapted_movies_df = pd.read_csv('data/adapted_movies.csv')[features]
+    # 2. Drop rows with missing values in 'MovieBoxOffice', 'MoviePlot', and 'MovieRating'.
     adapted_movies_df = adapted_movies_df.dropna(subset=['MovieBoxOffice', 'MoviePlot', 'MovieRating']).reset_index(drop=True)
+    # 3. Remove duplicate entries based on 'wikipedia_id'.
     adapted_movies_df.drop_duplicates(subset = 'wikipedia_id', inplace=True)
+    # 4. Read the movie sentiments data and merge it with the adapted movies data.
     movie_sentiments = pd.read_csv('data/adapted_movies_sentiments.csv').drop(columns=['MovieBoxOffice'])
     movie_sentiments.drop_duplicates(subset='wikipedia_id', inplace=True)
-
-    # merge the two dataframes
     data = pd.merge(adapted_movies_df, movie_sentiments, on='wikipedia_id').drop(columns=['MoviePlot', 'MovieYear'])
 
-    # fill missing values with the mean
+    # 5. Fill missing values in 'MovieRuntime', 'BookRating', and 'MovieRatingNb' with their respective means.
     replace_mean_cols = ['MovieRuntime', 'BookRating', 'MovieRatingNb']
     data[replace_mean_cols] = data[replace_mean_cols].fillna(data[replace_mean_cols].mean())
 
-    # dummify genres and languages
+    # 6. Dummify the 'MovieLanguage' column, keeping the top 4 languages and grouping the rest as 'Other Language'.
     data.MovieLanguage = data.MovieLanguage.apply(lambda x: x.split(', ') if isinstance(x, str) else [])
     data = data.explode('MovieLanguage')
     languages = data.MovieLanguage.value_counts()[:4].index.tolist()
     data.MovieLanguage = data.MovieLanguage.apply(lambda x: x if (x in languages) else 'Other Language')
     _, data = get_dummy(data, 'MovieLanguage')
+    # 7. Dummify the 'MovieGenre' column based on the provided genre categories, keeping the top 10 genres and grouping the rest as 'Other Genre'.
     data.dropna(subset=['MovieGenre'], inplace=True)
     _, data = analysis_by_category(data, genre_categories)
     categories = data.category.value_counts()[:10].index.tolist()
     data.category = data.category.apply(lambda x: x if (x in categories) else 'Other Genre')
     _, data = get_dummy(data, 'category')
+    # 8. Renames columns to remove spaces and special characters.
     new_cols = {col: col.replace(" ", "").replace("&", "") for col in data.columns.tolist()}
     data.rename(columns=new_cols, inplace=True)
+    # 9. Drop the 'OtherLanguage' column and any remaining duplicates based on 'wikipedia_id'.
     data.drop(columns = ['OtherLanguage'], inplace=True)
     data.drop_duplicates(subset='wikipedia_id', inplace=True)
+    # 10. Save the processed data to 'data/linear_regression_data.csv'.
     data.to_csv('data/linear_regression_data.csv', index=False)
     return data
 
@@ -117,12 +111,10 @@ def exploratory_plot(data, y):
 def plot_coefficients(res, title = 'Coefficients'):
     """
     Plots the coefficients of a linear regression model with error bars.
+    The plot is saved as a PNG file with the title as the filename (spaces replaced by underscores) and displayed.
     Args:
         res (statsmodels.regression.linear_model.RegressionResultsWrapper): The result object from a fitted linear regression model.
         title (str, optional): The title of the plot. Default is 'Coefficients'.
-    The function creates a plot of the coefficients of the linear regression model, including error bars representing 
-    the standard errors of the coefficients. The plot is saved as a PNG file with the title as the filename (spaces 
-    replaced by underscores) and displayed.
     """
     variables = res.params.index    
     coefficients = res.params.values
@@ -249,7 +241,8 @@ def forward_selection(data, target, predictors):
     """
     remaining_features = predictors.copy()
     selected_features = []
-    best_aic = float('inf')  # Initialize with a very high AIC value
+    # Initialize with a very high AIC value
+    best_aic = float('inf')  
 
     while remaining_features:
         aic_with_candidates = []
