@@ -1,0 +1,72 @@
+<div id="chart-container">
+    <div id="chart1" class="plotly-chart">
+        {% include_relative /_includes/map-test.html %}
+    </div>
+    <div id="chart2" class="plotly-chart" style="display: none;">
+        {% include_relative /_includes/plot.html %}
+    </div>
+</div>
+<div class="button-container">
+    <button id="toggle-button" class="styled-button">Toggle view</button>
+</div>
+
+<script>
+    document.getElementById('toggle-button').addEventListener('click', function () {
+        var chart1 = document.getElementById('chart1');
+        var chart2 = document.getElementById('chart2');
+
+        if (chart1.style.display === 'none') {
+            chart1.style.display = 'block';
+            chart2.style.display = 'none';
+        } else {
+            chart1.style.display = 'none';
+            chart2.style.display = 'block';
+        }
+    });
+</script>
+
+<style>
+    .plotly-chart {
+        width: 100%;
+        height: 500px;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        /* Center the button horizontally */
+        margin: 20px 0;
+        /* Add some margin above and below the button */
+    }
+
+    .styled-button {
+        background-color: #b5770a;
+        /* Green background */
+        border: none;
+        /* Remove borders */
+        color: white;
+        /* White text */
+        padding: 15px 32px;
+        /* Some padding */
+        text-align: center;
+        /* Centered text */
+        text-decoration: none;
+        /* Remove underline */
+        display: inline-block;
+        /* Make the button appear alongside text */
+        font-size: 16px;
+        /* Increase font size */
+        margin: 10px 2px;
+        /* Add some margin */
+        cursor: pointer;
+        /* Add a pointer cursor on hover */
+        border-radius: 4rem;
+        /* Rounded corners */
+        justify-content: center;
+    }
+
+    .styled-button:hover {
+        background-color: #805305;
+        /* Darker green on hover */
+    }
+</style>

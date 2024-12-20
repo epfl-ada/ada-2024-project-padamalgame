@@ -10,6 +10,7 @@
     height: 100vh;
     min-height: 100vh;
     text-align: left;
+    padding: 5rem 12rem;
     background-color: #5d3a11;
     background-image: url({{ site.baseurl }}/assets/img/image.png);
     background-repeat: no-repeat;
@@ -19,12 +20,46 @@
     font-family: 'Domine', serif;
 }
 
-.project-name { max-width: 50vw; }
+.project-name { max-width: 64rem; }
 
 .project-tagline { width: 50vw; margin-top: 3em; }
 .project-subtitle { font-family: 'Bonheur Royale', cursive; margin-top: 2em; margin-bottom: 0.1em; font-size: 3em; opacity: 0.7;}
+
+.main-content { width: 76rem; max-width: 76rem;}
 
 .main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {color: #5d3a11; font-family: 'Domine', serif;}
 
 .main-content h2 {font-family: 'Bonheur Royale', cursive; font-size: 6em;}
 .main-content h3 {font-size: 1em;}
+
+.book-section {
+    background-color: #ffeb99; /* Pastel yellow beige color */
+    background-image: url({{ site.baseurl }}/assets/img/fond_section.jpg); /* Background image */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; 
+    width: 100vw;
+    height: 80vh; /* 100% of viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Bonheur Royale', cursive; /* Google Font */
+    position: relative; /* Stay in the flow of the document */
+    left: 50%; /* Center horizontally */
+    right: 50%; /* Ensure full width */
+    margin: 10vh -50vw;
+}
+
+.book-title {
+    z-index: 1;
+    position: relative;
+    max-width: 64rem;
+    width: 64rem;
+}
+
+.book-subtitle {
+    z-index: 1;
+    position: relative;
+    max-width: 64rem;
+    width: 64rem;
+}

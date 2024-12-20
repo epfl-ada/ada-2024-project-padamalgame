@@ -1,0 +1,132 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" style="background-color: #ffeb99;">
+      <h1 class="carousel-title">Dickens</h1>
+      <h3 class="carousel-subtitle">The Master of Twists</h3>
+      <p>Content for slide 1...</p>
+    </div>
+    <div class="swiper-slide" style="background-color: #ffeb99;">
+      <h1 class="carousel-title">Edgar Rice Burroughs</h1>
+      <h3 class="carousel-subtitle">The Multiplier / The Tarzamania</h3>
+      <p>Content for slide 2...</p>
+    </div>
+    <div class="swiper-slide" style="background-color: #ffeb99;">
+      <h1 class="carousel-title">Agatha Christie</h1>
+      <h3 class="carousel-subtitle">The Serial Writer</h3>
+      <p>Content for slide 3...</p>
+    </div>
+    <div class="swiper-slide" style="background-color: #ffeb99;">
+      <h1 class="carousel-title">Jules Verne</h1>
+      <h3 class="carousel-subtitle">The Twenty Thousands Ideas</h3>
+      <p>Content for slide 4...</p>
+    </div>
+    <div class="swiper-slide" style="background-color: #ffeb99;">
+      <h1 class="carousel-title">Jane Austen</h1>
+      <h3 class="carousel-subtitle">The Unveiler of Prejudices</h3>
+      <p>Content for slide 5...</p>
+    </div>
+    <div class="swiper-slide" style="background-color: #ffeb99;">
+      <h1 class="carousel-title">Victor Hugo</h1>
+      <h3 class="carousel-subtitle">The Legend of the Century</h3>
+      <p>Content for slide 6...</p>
+    </div>
+  </div>
+
+  <!-- Add Pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- Add Navigation -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+
+<style>
+  /* Ensure swiper container takes up the full screen height */
+  .swiper-container {
+    width: 100%;
+    height: 80vh;
+    box-sizing: border-box;
+    position: relative;
+    /* Important for absolute positioning of child elements */
+    margin-top: 4rem;
+  }
+
+  .swiper-slide {
+    display: flex;
+    background-image: url({{ site.baseurl }}/assets/img/paper-texture.jpg);
+    /* Background image */
+    background-size: cover;
+    /* Cover the entire section */
+    background-position: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    font-family: 'Bonheur Royale', cursive;
+    /* Google Font */
+  }
+
+  .carousel-title {
+    font-size: 3em;
+    text-align: center;
+    color: #000;
+  }
+
+  .carousel-subtitle {
+    font-size: 1em;
+    text-align: center;
+    color: #000;
+  }
+
+  /* Position pagination at the bottom of the swiper container */
+  .swiper-pagination {
+    position: absolute;
+    left: 50vw;
+    bottom: 20px;
+    /* Adjust this as needed */
+    z-index: 10;
+  }
+
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    background: #000;
+    opacity: 0.2;
+    transition: opacity 0.3s;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #6c2e01;
+  }
+
+  /* Style for the navigation buttons */
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #000;
+    z-index: 10;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,  // Allow the pagination bullets to be clicked
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  });
+</script>
