@@ -20,7 +20,7 @@ def load_genre_categories(json_file):
     return genre_categories
     
 
-def analysis_by_category(df): 
+def analysis_by_category(df, path): 
     # Separate the MovieGenre and explode the list into separate rows
     df_MovieGenre_exploded = explode_MovieGenre(df)
 
@@ -28,7 +28,7 @@ def analysis_by_category(df):
     genre_counts = df_MovieGenre_exploded['MovieGenre'].value_counts()
 
     # Load the genre categories from a JSON file
-    genre_categories = load_genre_categories(os.path.abspath('data/genre_categories.json'))
+    genre_categories = load_genre_categories(path)
     #genre_categories = load_genre_categories('data/genre_categories.json')
 
 
