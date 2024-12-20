@@ -46,8 +46,6 @@ Turn the page for even more exciting insights, where you'll discover the evolvin
 
 {% include carousel_evolution.html %}
 
-Category Evolution
-
 ![Number of Adapted Movies Per Year]({{ site.baseurl }}/assets/img/Number_of_Movies_Released_Each_Year.jpg)
 
 Looking at the number of adaptations released each year, it's clear that the early 2000s saw a significant increase in adaptations in cinema. Major literary works, like *Harry Potter and the Sorcerer's Stone* (2001) and *The Lord of the Rings: The Fellowship of the Ring* (2001), led the charge, dominating the box office and spawning iconic series. However, don’t be fooled, young fellow! While these films certainly fueled excitement for adaptations, the increase is more likely tied to the broader boom in the entertainment industry. As shown in the graph on the right, the rise in adaptations correlates closely with the overall increase in movie productions during this time, rather than a sudden surge in literary interest.towards books but as you can see on right graph would be more likely to be explain by the general rise of the entertainment industry and the significant augmentation of movie produced per year in general.
@@ -57,7 +55,23 @@ Looking at the number of adaptations released each year, it's clear that the ear
 
 To wrap up our journey through time, we took a look at when the books adapted into movies were originally published. And here’s the star of the show, the Gaussian distribution! It centers around the 1950s, a period that saw the publication of iconic works like *The Angel* of Elizabeth Taylor and Richard Matheson’s legendary *I Am Legend*. It seems we love to rediscover literary treasures after some time has passed. But wait, some notable peaks highlight timeless authors like Grimm and Austen from the 1800s. Could it be that age is just a number when it comes to great literature?
 
+# SUCCESS: A First Look to the Impact of Adapted Movies
 
+Virtus post nummos (virtue after money): it is good to keep one's feet on the ground and talk about money. Is adapting books to cinema a good strategy, and does it receive success with the audience?
+
+We took a closer look at the box office performance of adapted movies, carefully adjusting the figures for inflation to capture the real impact over time.
+
+![Average Adjusted Box Office per Genre Category]({{ site.baseurl }}/assets/img/Average_Adjusted_Box_Office_per_Genre_Category.png)
+
+Espionage & Spy movies dominate the list, closely followed by Horror & Supernatural. These genres seem to have a knack for captivating audiences at the time of their release, with some, like the iconic James Bond films, marking their era to become part of pop culture.
+
+**But do adaptations actually outperform original films in profitability?**
+
+![Average Adjusted Box Office per Genre Category Adapted vs Non Adapted]({{ site.baseurl }}/assets/img/Average_Adjusted_Box_Office_per_Genre_Category_Adapted_Movies_vs_Non_Adapted_Movies.png)
+
+The answer appears to be a resounding yes. Adapted movies clearly have an edge over non-adapted ones in terms of box office performance, as seen in most genres. This suggests that adapting existing literary works, especially in genres with high market demand, is not only a safer bet financially but also a pathway to cultural impact. So, here’s an ironic takeaway: if your goal is to make money, creativity might be optional. Simply adapt a book!
+
+The list of the top 10 movies with the highest adjusted box office reveals a fascinating interplay between adaptation and original screenplay. Topping the charts are iconic literary adaptations such as *Snow White and the Seven Dwarfs* (1937) and *Gone with the Wind* (1939), both timeless classics that leveraged beloved stories to captivate audiences for generations. Other adaptations, like *Bambi* (1942) and *The Exorcist* (1973), showcase the enduring power of narrative, whether enchanting or terrifying. Yet, original creations like *Star Wars : A New Hope* (1977), *Titanic* (1997), *Avatar* (2009), and *E.T. the Extra-Terrestrial* (1982) prove that unique visions can also redefine cinema, resonating deeply with audiences worldwide. This delicate balance of adapted and original works highlights how both storytelling roots and bold innovation shape the cinematic landscape.
 
 
 {% include yellowwork.html %}
