@@ -8,7 +8,7 @@
 - Hugo:
 - Julia:
 - Mallory:
-- Iris: data scrapping, cleaning and merging, sentiment analysis, genre clustering, linear regression
+- Iris: data scrapping, cleaning and merging, genre clustering, sentiment analysis, linear regression
 
 # Abstract 
 
