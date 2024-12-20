@@ -1,5 +1,15 @@
 # From Page to Screen: The Powerful Influence of Literature on Cinema ?
 
+# Website URL 
+[Link to our website](https://epfl-ada.github.io/ada-2024-project-padamalgame/), we hope you enjoy :)
+
+# Contributions
+- Christelle:
+- Hugo:
+- Julia:
+- Mallory:
+- Iris: data scrapping, cleaning and merging, genre clustering, sentiment analysis, linear regression
+
 # Abstract 
 
 After dropping my studies in data science, I wanted to pursue a life in my passion of all time: Literature.
@@ -16,7 +26,6 @@ First, we will analyze **What kind of books are adapted to movies?** How do they
 Then, we will analyze the **success of the adaptations themselves**: are they more successful than non-adaptations? Is there a correlation between the success of a book and of its adaptation? This success can both be represented in terms of box-office, rating and engagement (number of reviews).
 
 Finally, we will analyze **Does a book’s plots and its adaptation’s plot resemble each other?** This would lead us to understand to what extent are the subjects in the plots the same, or if adaptations tend to add / remove some topics. We could then understand how this correlates with the rating of users.
-
 
 # Additional Datasets
 ## 1. Wiki/List_of_fiction_works_made_into_feature_films
@@ -50,16 +59,16 @@ We will look for correlations, for example :
 between the success of a book and the success of the movie
 between the date of release of a book and the date of release of the movie
 
+## Dimensionality reduction & clustering
+Are there any movie genres that can be regrouped into clusters?
+
+## Natural language processing
+We will use NLP techniques and LLMs to analyze plot similarities between books and movies and attempt to evaluate how similar they are. We will also analyze the common divergences that can occur and if they impact the success.
+
 ## Linear regression
 Can we predict movie success efficiently with other features and which features have the biggest coefficients
 
 
-## Dimensionality reduction & clustering
-Are there any movie genres that can be regrouped into clusters?
-
-
-## Natural language processing
-We will use NLP techniques and LLMs to analyze plot similarities between books and movies and attempt to evaluate how similar they are. We will also analyze the common divergences that can occur and if they impact the success.
 
 
 
