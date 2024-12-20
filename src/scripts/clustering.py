@@ -12,7 +12,7 @@ def plot_sse(features_X, start=2, end=11, title = "Elbow Plot"):
     sse = []
     for k in range(start, end):
         # Assign the labels to the clusters
-        kmeans = KMeans(n_clusters=k, random_state=10).fit(features_X)
+        kmeans = KMeans(n_clusters=k, random_state=0).fit(features_X)
         sse.append({"k": k, "sse": kmeans.inertia_})
 
     sse = pd.DataFrame(sse)
