@@ -7,7 +7,7 @@
 - Christelle: genre to category mapping, preliminary data analysis, graph plotting, box-office & inflation analysis, final refactoring & commenting
 - Hugo: merging, interactive map, graph plotting
 - Julia: preliminary data analysis, graph plotting, category analysis and storyline
-- Mallory: website 
+- Mallory: website, merging
 - Iris: data scrapping, cleaning and merging, genre clustering, sentiment analysis, linear regression
 
 # Abstract 
