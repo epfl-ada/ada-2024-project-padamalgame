@@ -5,7 +5,7 @@ def weighted_ratings(m, rating_nb_df, rating_df):
     return (rating_nb_df/ (rating_nb_df + m)) * rating_df + (m / (rating_nb_df + m)) * C
 
 def create_weighted_ratings_df(df): 
-    rating_df = pd.DataFrame(df[['MovieRating', 'MovieRatingNb', 'BookRating', 'BookRatingNb', 'MovieRuntime', 'category']])
+    rating_df = pd.DataFrame(df[['MovieRating', 'MovieRatingNb', 'BookRating', 'BookRatingNb', 'MovieRuntime', 'MovieCategory']])
     rating_df = rating_df[~rating_df.index.duplicated(keep='first')].dropna()
 
     m_book = rating_df['BookRatingNb'].quantile(0.25)

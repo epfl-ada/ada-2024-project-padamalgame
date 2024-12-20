@@ -32,12 +32,11 @@ def analysis_by_category(df, path):
     genre_categories = load_genre_categories(path)
     #genre_categories = load_genre_categories('data/genre_categories.json')
 
-
     # Map MovieGenre to categories
-    df_MovieGenre_exploded['category'] = df_MovieGenre_exploded['MovieGenre'].map(lambda x: next((k for k, v in genre_categories.items() if x in v), 'Other'))
+    df_MovieGenre_exploded['MovieCategory'] = df_MovieGenre_exploded['MovieGenre'].map(lambda x: next((k for k, v in genre_categories.items() if x in v), 'Other'))
 
     # Count the number of movies in each genre category
-    genre_category_counts = df_MovieGenre_exploded['category'].value_counts()
+    genre_category_counts = df_MovieGenre_exploded['MovieCategory'].value_counts()
     return genre_category_counts, df_MovieGenre_exploded
 
 def category_evolution(df): 
@@ -46,17 +45,17 @@ def category_evolution(df):
 
     category_evolution = {}
     for category in genre_categories: 
-        evolution = df[df['category'] == category]['MovieYear']
+        evolution = df[df['MovieCategory'] == category]['MovieYear']
         category_evolution[category] = evolution
 
     return category_evolution
 
 def category_correlation(coef, df, col1, col2): 
     category_stats = {}
-    categories= df['category'].unique()
+    categories= df['MovieCategory'].unique()
 
     for category in categories : 
-        df_cat = df[df['category'] == category]
+        df_cat = df[df['MovieCategory'] == category]
         if len(df_cat[col1]) > 2: 
             if coef == 'pearson': 
                 res = stats.pearsonr(df_cat[col1], df_cat[col2])
