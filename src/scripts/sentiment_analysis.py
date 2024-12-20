@@ -85,7 +85,7 @@ def plot_correlation(df):
     plt.legend(title='Significance', loc='lower right')
 
     plt.tight_layout()
+    plt.savefig('book-movie_plot_correlation.jpg')
     plt.show()
-    plt.savefig('book-movie_plot_correlation.png')
     return
 
