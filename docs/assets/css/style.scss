@@ -37,10 +37,12 @@
 
 .main-content h1, .main-content h2, .main-content h3, .main-content h5, .main-content h6 {color: #5d3a11; font-family: 'Domine', serif;}
 
-.main-content h1 {font-size: 2rem;}
+.main-content h1 {font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 500;}
 .main-content h2 {font-family: 'Bonheur Royale', cursive; font-size: 5rem;}
-.main-content h3 {font-size: 1rem; font-weight: 500;}
+.main-content h3 { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 500;}
 .main-content h4 {color: #5d3a11; font-size: 2rem;}
+
+.main-content p { text-align: justify;}
 
 .book-section {
     background-color: #ffeb99; /* Pastel yellow beige color */

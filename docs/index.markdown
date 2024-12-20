@@ -20,7 +20,7 @@ In order to gain more insights into the books, we merged our dataset with a good
 Emerging from this fusion, we obtained the dataset on which we will perform our analysis.
 
 
-# Streamlining Genres for Cinematic Analysis
+###  Streamlining Genres for Cinematic Analysis
 
 To streamline the analysis of movie data, we mapped 529 unique movie genres into 37 broader categories, referred to as super-genres. This mapping was necessary as many of the original genres were either identical in essence but written differently or exhibited strong similarities that made them suitable for grouping. By consolidating these genres into broader categories, the analysis becomes more manageable, reducing the number of features from 529 to 37. This simplification not only enhances the interpretability of the dataset but also facilitates more effective comparisons and insights by focusing on overarching trends rather than granular distinctions.\\
 Dive into the details, and click on the interactive sunburst plot to explore the composition of each broader category!
@@ -33,9 +33,13 @@ Dive into the details, and click on the interactive sunburst plot to explore the
 
 *Now that we have removed the impurities, we must confront the deeper, hidden layers of our data and explore what lies beneath. What secrets does this matter hold, waiting to be revealed ? By breaking apart the old and familiar, we reach the raw, unrefined state, marking the second step in our journey: the Opus Nigredo, or the Work of Blackening. This stage begins the process of separation, where we aim to uncover the true essence of our data.*
 
+This section represents the first steps in exploring our data. It focuses on two main axes: time-related trends, to understand the evolution of adapted and non-adapted films, and their success, by comparing their respective performances with added granularity across genre categories. 
+
+
 #  TIME: Evolution Across Eras and Genres
 
-[plot category adapted movies]
+![Percentage of adapted movies vs non adapted per category]({{ site.baseurl }}/assets/img/Percentage_of_Movies_per_Category_Adapted_Movies_vs_Non_Adapted_Movies.png
+)
 
 
 Which book categories are most likely to be adapted into movies? Well, it looks like people have a soft spot for drama, adventure, and mysteries. But throw in a bit of time travel and a good laugh, and you may have a winning combination as well !
@@ -59,7 +63,7 @@ To wrap up our journey through time, we took a look at when the books adapted in
 
 # SUCCESS: A First Look to the Impact of Adapted Movies
 
-Virtus post nummos (virtue after money): it is good to keep one's feet on the ground and talk about money. Is adapting books to cinema a good strategy, and does it receive success with the audience?
+Virtus post nummos *(virtue after money)*: it is good to keep one's feet on the ground and talk about money. Is adapting books to cinema a good strategy, and does it receive success with the audience?
 
 We took a closer look at the box office performance of adapted movies, carefully adjusting the figures for inflation to capture the real impact over time.
 
