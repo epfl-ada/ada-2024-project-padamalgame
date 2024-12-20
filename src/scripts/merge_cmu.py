@@ -9,7 +9,7 @@ def clean_title(title):
     """
     return title.lower().replace(" ", "")
 
-# 
+
 def clean_json_format(list):
     """
     Clean a json-like representation into a list of the values of the json-pairs.
@@ -17,7 +17,20 @@ def clean_json_format(list):
     dict = ast.literal_eval(list)
     return ', '.join(dict.values())
 
+
 def clean_cmu(dataset_path): 
+    """
+    Cleans and processes the CMU movie dataset.
+    Args:
+        dataset_path (str): The file path to the CMU movie dataset in CSV format.
+    Returns:
+        pd.DataFrame: A cleaned DataFrame containing the CMU movie data with the following modifications:
+            - 'clean_name': A new column with cleaned movie names.
+            - 'language': Cleaned JSON representation of languages.
+            - 'countries': Cleaned JSON representation of countries.
+            - 'genres': Cleaned JSON representation of genres.
+            - 'movie_date': Extracted year from the movie release date.
+    """
     cmu_movies = pd.read_csv(dataset_path, 
                              sep='\t', usecols=[0,2,3,4,5,6,7,8], 
                              names=['wikipedia_id','movie_name', 'movie_date', 'box_office', 'runtime', 'language', 'countries', 'genres']) 
@@ -45,7 +58,6 @@ def merge_with_CMU(df):
     Merge a DataFrame containing movie data with the CMU Movie Summaries dataset.
     Clean movie titles, normalize JSON-like fields, extract the release year from dates, and remove duplicates and invalid data, 
     before merging the datasets.
-
     """
     cmu_movies = clean_cmu("../MovieSummaries/movie.metadata.tsv")
     title_column = df['FilmTitle']
@@ -62,7 +74,17 @@ def merge_with_CMU(df):
     merge_cmu['movie_date'] = merge_cmu['movie_date'].astype('int64')
     return merge_cmu
 
+
 def check_year_in_range(row):
+    """
+    Check if the movie year is within the specified range.
+    Args:
+        row (dict): A dictionary containing 'movie_date' and 'FilmYear'.
+            - 'movie_date' (int): The year of the movie.
+            - 'FilmYear' (str): The range of years in the format 'start-end' or 'start-present'.
+    Returns:
+        bool: True if the movie year is within the range, False otherwise.
+    """
     year = row['movie_date']
     year_range = row['FilmYear']
     if isinstance(year_range, str) and '-' in year_range:
