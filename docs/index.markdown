@@ -29,20 +29,36 @@ Dive into the details, and click on the interactive sunburst plot to explore the
 
 {% include blackwork.html %}
 
-{% include table.html %}
+*Now that we have removed the impurities, we must confront the deeper, hidden layers of our data and explore what lies beneath. What secrets does this matter hold, waiting to be revealed ? By breaking apart the old and familiar, we reach the raw, unrefined state, marking the second step in our journey: the Opus Nigredo, or the Work of Blackening. This stage begins the process of separation, where we aim to uncover the true essence of our data.*
 
-![ImageTest]({{ site.baseurl }}/assets/img/graph1.png)
+#  TIME: Evolution Across Eras and Genres
 
-{% include toggler1.html %}
+[plot category adapted movies]
 
-{% include regression_rating_summary.html %}
 
-Now that we have purged the impurities, we must summon the courage to face the shadowed depths of our data, and delve into the dark recesses that lie within. What secrets does this matter hold, waiting to be revealed unto us?
-Breaking asunder the old and the familiar, we are left with the raw and undefined form, marking the second step in this great unfolding—the Opus Nigredo, the Work of Blackening. It is the commencement of the process of separation, wherein we strive to draw forth the essence of our data.
+Which book categories are most likely to be adapted into movies? Well, it looks like people have a soft spot for drama, adventure, and mysteries. But throw in a bit of time travel and a good laugh, and you may have a winning combination as well !
+
+![Average Movie Year per Genre Category]({{ site.baseurl }}/assets/img/Average_Movie_Year_per_Genre_Category.png)
+
+We then examine the average release year of movies across various categories. This reveals a rise in adaptations exploring new themes, such as LGBTQ+ narratives and cyber topics, closely tied to societal evolution. Notably, there is also a surge in animated movies, made possible by advancements in audio-visual technologies. On the flip side, some themes have been abandoned due to dwindling audience interest. The most striking, yet not surprising, example is the decline of classic and silent films.
+
+Turn the page for even more exciting insights, where you'll discover the evolving trends of the six most represented categories among adaptations. You will notice that the distributions of both adaptations and non-adapted  movies often align, revealing a positive spearman correlation and showing how the trends are in sync whether it is based on a book or not!
 
 {% include carousel_evolution.html %}
 
 Category Evolution
+
+![Number of Adapted Movies Per Year]({{ site.baseurl }}/assets/img/Number_of_Movies_Released_Each_Year.jpg)
+
+Looking at the number of adaptations released each year, it's clear that the early 2000s saw a significant increase in adaptations in cinema. Major literary works, like *Harry Potter and the Sorcerer's Stone* (2001) and *The Lord of the Rings: The Fellowship of the Ring* (2001), led the charge, dominating the box office and spawning iconic series. However, don’t be fooled, young fellow! While these films certainly fueled excitement for adaptations, the increase is more likely tied to the broader boom in the entertainment industry. As shown in the graph on the right, the rise in adaptations correlates closely with the overall increase in movie productions during this time, rather than a sudden surge in literary interest.towards books but as you can see on right graph would be more likely to be explain by the general rise of the entertainment industry and the significant augmentation of movie produced per year in general.
+
+![Number of Movies per Bokk Release Date]({{ site.baseurl }}/assets/img/Number_of_Movies_per_Book_Release_Date.png)
+
+
+To wrap up our journey through time, we took a look at when the books adapted into movies were originally published. And here’s the star of the show, the Gaussian distribution! It centers around the 1950s, a period that saw the publication of iconic works like *The Angel* of Elizabeth Taylor and Richard Matheson’s legendary *I Am Legend*. It seems we love to rediscover literary treasures after some time has passed. But wait, some notable peaks highlight timeless authors like Grimm and Austen from the 1800s. Could it be that age is just a number when it comes to great literature?
+
+
+
 
 {% include yellowwork.html %}
 
